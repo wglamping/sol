@@ -1718,29 +1718,29 @@
         })
       });
 
-      if (res.ok) {
-        // Fire Lead pixel event
-        fbq('track', 'Lead');
+      // Fire Lead pixel event regardless of API response
+      fbq('track', 'Lead');
 
-        // Store email for checkout pre-fill
-        sessionStorage.setItem('guestEmail', email);
+      // Store email for checkout pre-fill
+      sessionStorage.setItem('guestEmail', email);
 
-        // Show success
-        input.closest('.form-row').style.display = 'none';
-        success.style.display = 'block';
+      // Show success and redirect regardless
+      input.closest('.form-row').style.display = 'none';
+      success.style.display = 'block';
 
-        // Redirect to Page 2 after brief delay
-        setTimeout(() => {
-          window.location.href = 'vip.html';
-        }, 1200);
-      } else {
-        throw new Error('Server error');
-      }
+      setTimeout(() => {
+        window.location.href = 'vip.html';
+      }, 1200);
+
     } catch(err) {
-      btn.textContent = originalText;
-      btn.disabled = false;
-      btn.style.background = '#8B3A2B';
-      setTimeout(() => { btn.style.background = ''; }, 2000);
+      // Still redirect even if API call fails
+      fbq('track', 'Lead');
+      sessionStorage.setItem('guestEmail', email);
+      input.closest('.form-row').style.display = 'none';
+      success.style.display = 'block';
+      setTimeout(() => {
+        window.location.href = 'vip.html';
+      }, 1200);
     }
   }
 
