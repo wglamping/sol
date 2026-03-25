@@ -402,7 +402,7 @@ a { color: inherit; text-decoration: none; }
   <div class="form-side">
 
     <div class="form-section">
-      <div class="form-heading">Your <span>details</span></div>
+      <div class="form-heading">Tell us about <span>yourself</span></div>
       <div class="field-row">
         <div class="field"><label>First name</label><input type="text" id="firstName" placeholder="Jane" required></div>
         <div class="field"><label>Last name</label><input type="text" id="lastName" placeholder="Smith" required></div>
@@ -416,34 +416,10 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="form-section">
-      <div class="form-heading">Your <span>trip</span></div>
-      <div class="for-two-badge">
-        <span class="heart">♥</span>
-        <span>Peregrino Sol is designed for <strong>two guests.</strong> Private, unhurried, completely your own.</span>
-      </div>
-      <div class="chip-label">Preferred travel season</div>
-      <div class="chips">
-        <div class="chip" onclick="toggleChip(this)">Spring 2026</div>
-        <div class="chip" onclick="toggleChip(this)">Summer 2026</div>
-        <div class="chip" onclick="toggleChip(this)">Fall 2026</div>
-        <div class="chip" onclick="toggleChip(this)">Winter 2026</div>
-        <div class="chip" onclick="toggleChip(this)">Flexible</div>
-      </div>
-      <div class="field-row single" style="margin-bottom:16px;">
-        <div class="field">
-          <label>What's the occasion?</label>
-          <select id="occasion">
-            <option value="">Select one</option>
-            <option>Anniversary</option>
-            <option>Honeymoon</option>
-            <option>Birthday</option>
-            <option>Getaway</option>
-            <option>Friend trip</option>
-            <option>Just because</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
+      <div class="form-heading">Your <span>stay</span></div>
+
+
+
       <div class="field-row single" style="margin-bottom:16px;">
         <div class="field">
           <label>How did you hear about us?</label>
@@ -461,8 +437,8 @@ a { color: inherit; text-decoration: none; }
       </div>
       <div class="field-row single">
         <div class="field">
-          <label>Anything you'd like us to know? <span style="opacity:.5;font-size:10px;">(optional)</span></label>
-          <textarea id="notes" placeholder="Special requests, celebrations, dietary needs..."></textarea>
+          <label>Anything you'd like us to know? <span style="opacity:.5;font-size:10px;">occasion, preferences, anything</span></label>
+          <textarea id="notes" placeholder="Anniversary, birthday, dietary preferences, anything that would make your stay feel more personal..."></textarea>
         </div>
       </div>
     </div>
@@ -487,7 +463,7 @@ a { color: inherit; text-decoration: none; }
         </div>
       </div>
 
-      <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">Continue to secure payment — $50</button>
+      <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">Secure my founding spot — $50</button>
       <div class="submit-note">
         By reserving you agree to our <a href="#">terms</a> and <a href="#">refund policy</a>.<br>
         Your $50 is fully refundable if your plans change — no questions asked.
