@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve Your Spot — Peregrino Sol · Wander Glamping</title>
+  <meta name="description" content="Reserve your founding guest spot at Peregrino Sol. $50 deposit, fully refundable.">
+  <style id="shared-css">
+/* ============================================
+   PEREGRINO SOL — WANDER GLAMPING
+   Shared styles · sol.gowanderglamping.com
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #F5F0E8;
+  --dark: #1A1A14;
+  --dark-2: #2C2418;
+  --dark-3: #1A1208;
+  --warm: #8B6F47;
+  --accent: #C4A46B;
+  --accent-light: #D4B47B;
+  --muted: #6B6456;
+  --border: rgba(196,164,107,0.18);
+  --border-strong: rgba(196,164,107,0.3);
+  --subtle: rgba(245,240,232,0.04);
+  --text-muted: rgba(245,240,232,0.55);
+  --text-dim: rgba(245,240,232,0.35);
+  --text-ghost: rgba(245,240,232,0.2);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--dark);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- TYPOGRAPHY ---- */
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  line-height: 1.1;
+}
+em { font-style: italic; color: var(--accent); }
+a { color: inherit; text-decoration: none; }
+
+/* ---- NAV ---- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--border);
+  background: rgba(26,26,20,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 300; color: var(--cream);
+  letter-spacing: 0.05em;
+}
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-size: 11px; font-weight: 400; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--text-dim);
+  transition: color 0.2s;
+}
+.nav-link:hover { color: var(--accent); }
+.nav-cta {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--dark);
+  background: var(--accent); padding: 10px 24px;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--accent-light); }
+
+/* ---- BUTTONS ---- */
+.btn-primary {
+  display: inline-block;
+  background: var(--accent); color: var(--dark);
+  font-family: 'DM Sans', sans-serif; font-size: 12px;
+  font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 16px 40px; border: none; cursor: pointer;
+  transition: background 0.2s;
+  text-align: center;
+}
+.btn-primary:hover { background: var(--accent-light); }
+
+.btn-ghost {
+  display: inline-block;
+  font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-dim);
+  border-bottom: 1px solid rgba(196,164,107,0.2);
+  padding-bottom: 2px; transition: color 0.2s;
+}
+.btn-ghost:hover { color: var(--cream); }
+
+/* ---- EYEBROW ---- */
+.eyebrow {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 16px;
+}
+.eyebrow-line { display: block; width: 32px; height: 1px; background: var(--accent); }
+
+/* ---- SECTION LABEL ---- */
+.section-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 28px;
+  display: flex; align-items: center; gap: 16px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: rgba(196,164,107,0.15); }
+
+/* ---- PROGRESS BAR ---- */
+.progress-bar {
+  padding: 16px 48px;
+  display: flex; align-items: center;
+  border-bottom: 1px solid var(--border);
+  background: rgba(196,164,107,0.03);
+}
+.step { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+.step-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 500;
+}
+.step.done .step-num { background: rgba(196,164,107,0.15); color: var(--accent); border: 1px solid var(--accent); }
+.step.done .step-label { color: var(--text-dim); }
+.step.active .step-num { background: var(--accent); color: var(--dark); border: 1px solid var(--accent); }
+.step.active .step-label { color: var(--cream); }
+.step.pending .step-num { background: transparent; color: var(--text-ghost); border: 1px solid rgba(196,164,107,0.15); }
+.step.pending .step-label { color: var(--text-ghost); }
+.step-divider { flex: 1; height: 1px; background: var(--border); margin: 0 16px; max-width: 60px; }
+
+/* ---- LOCK ICON ---- */
+.lock-icon {
+  width: 14px; height: 14px; border: 1.5px solid rgba(196,164,107,0.4);
+  border-radius: 2px; position: relative;
+  display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2px;
+}
+.lock-icon::before {
+  content: ''; position: absolute; top: -5px; left: 50%;
+  transform: translateX(-50%); width: 8px; height: 6px;
+  border: 1.5px solid rgba(196,164,107,0.4); border-bottom: none;
+  border-radius: 4px 4px 0 0;
+}
+.lock-dot { width: 3px; height: 3px; background: rgba(196,164,107,0.4); border-radius: 50%; }
+
+/* ---- FOOTER ---- */
+.site-footer {
+  padding: 32px 48px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 300; color: var(--text-dim);
+}
+.footer-note { font-size: 11px; color: var(--text-ghost); letter-spacing: 0.03em; }
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.animate-fade-up { animation: fadeUp 0.9s ease both; }
+.animate-fade-up-delay { animation: fadeUp 0.9s ease 0.2s both; }
+.animate-fade-up-delay-2 { animation: fadeUp 0.9s ease 0.4s both; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .site-footer { padding: 24px; }
+  .progress-bar { padding: 12px 24px; }
+  .step-label { display: none; }
+}
+
+</style>
+  <style>
+    body { padding-top: 81px; }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      max-width: 1000px;
+      margin: 0 auto;
+      min-height: calc(100vh - 160px);
+    }
+
+    /* FORM SIDE */
+    .form-side { padding: 52px 52px 80px; border-right: 1px solid var(--border); }
+    .form-section { margin-bottom: 40px; }
+    .form-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 300; color: var(--cream);
+      margin-bottom: 28px; padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-heading span { font-style: italic; color: var(--accent); }
+
+    /* FOR TWO BADGE */
+    .for-two-badge {
+      display: flex; align-items: center; gap: 12px;
+      border: 1px solid var(--border);
+      padding: 14px 20px; margin-bottom: 28px;
+      background: rgba(196,164,107,0.04);
+    }
+    .for-two-badge span { font-size: 13px; color: var(--text-muted); }
+    .for-two-badge strong { font-weight: 400; color: var(--cream); }
+    .heart { color: var(--accent); font-size: 14px; flex-shrink: 0; }
+
+    /* FIELDS */
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .field-row.single { grid-template-columns: 1fr; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field label { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
+    .field input, .field select, .field textarea {
+      background: rgba(245,240,232,0.04); border: 1px solid var(--border);
+      color: var(--cream); font-family: 'Jost', sans-serif;
+      font-size: 14px; font-weight: 300; padding: 13px 16px; outline: none;
+      transition: border-color 0.2s; -webkit-appearance: none; appearance: none;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(245,240,232,0.22); }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); background: rgba(196,164,107,0.04); }
+    .field select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C4A46B' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+    .field select option { background: #2C2418; color: var(--cream); }
+    .field textarea { resize: vertical; min-height: 88px; }
+
+    /* SEASON CHIPS */
+    .chip-label { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 10px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .chip {
+      padding: 9px 18px; border: 1px solid var(--border);
+      font-size: 12px; color: rgba(245,240,232,0.45);
+      cursor: pointer; transition: all 0.15s; letter-spacing: 0.05em;
+      user-select: none; font-family: 'Jost', sans-serif; font-weight: 300;
+    }
+    .chip:hover { border-color: rgba(196,164,107,0.35); color: rgba(245,240,232,0.7); }
+    .chip.selected { border-color: var(--accent); color: var(--accent); background: rgba(196,164,107,0.06); }
+
+    /* PAYMENT BLOCK */
+    .payment-block { background: rgba(245,240,232,0.03); border: 1px solid var(--border); padding: 28px; margin-bottom: 24px; }
+    .payment-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 18px; }
+    .card-brands { display: flex; gap: 8px; margin-bottom: 18px; }
+    .card-brand { padding: 5px 10px; border: 1px solid rgba(196,164,107,0.12); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; color: var(--text-dim); }
+    .stripe-badge { display: flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 11px; color: var(--text-ghost); }
+    .stripe-name { font-size: 13px; font-weight: 500; color: rgba(245,240,232,0.22); }
+
+    /* SUBMIT */
+    .btn-submit {
+      width: 100%; background: var(--accent); color: var(--dark);
+      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 18px; border: none; cursor: pointer; transition: background 0.2s; margin-bottom: 16px;
+    }
+    .btn-submit:hover:not(:disabled) { background: var(--accent-light); }
+    .btn-submit:disabled { opacity: 0.6; cursor: default; }
+    .submit-note { text-align: center; font-size: 11px; color: var(--text-ghost); line-height: 1.7; }
+    .submit-note a { color: rgba(196,164,107,0.45); }
+
+    /* SUMMARY SIDE */
+    .summary-side { padding: 52px 36px; background: rgba(196,164,107,0.02); }
+    .summary-heading { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 28px; }
+    .summary-product { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+    .summary-tag { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; background: rgba(196,164,107,0.1); color: var(--accent); padding: 5px 14px; margin-bottom: 14px; }
+    .summary-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: var(--cream); margin-bottom: 8px; line-height: 1.2; }
+    .summary-sub { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
+    .for-two-line { display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 11px; color: rgba(196,164,107,0.55); letter-spacing: 0.04em; }
+    .for-two-line::before { content: '♥'; font-size: 10px; }
+
+    .summary-line { display: flex; justify-content: space-between; align-items: baseline; padding: 11px 0; border-bottom: 1px solid rgba(196,164,107,0.06); }
+    .s-label { font-size: 13px; color: rgba(245,240,232,0.45); }
+    .s-val { font-size: 13px; color: var(--cream); }
+    .s-val.gold { color: rgba(196,164,107,0.7); }
+    .summary-total { display: flex; justify-content: space-between; align-items: baseline; padding: 20px 0 0; }
+    .total-label { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
+    .total-val { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: var(--accent); }
+
+    .inclusions { margin-top: 32px; }
+    .inc-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-ghost); margin-bottom: 14px; }
+    .inc-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(196,164,107,0.06); }
+    .inc-item:last-child { border-bottom: none; }
+    .inc-mark { color: var(--accent); font-size: 11px; margin-top: 2px; flex-shrink: 0; }
+    .inc-text { font-size: 12px; color: var(--text-dim); line-height: 1.55; }
+
+    .trust-badges { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+    .trust-b { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--text-ghost); }
+    .trust-b::before { content: '✓'; color: rgba(196,164,107,0.35); }
+
+    /* NAV SECURE */
+    .nav-secure { display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
+
+    @media (max-width: 820px) {
+      .page-layout { grid-template-columns: 1fr; }
+      .form-side { border-right: none; border-bottom: 1px solid var(--border); padding: 32px 24px; }
+      .summary-side { padding: 32px 24px; }
+      .field-row { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KP3CB263');</script>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','9865529503490887');
+  </script>
+
+  <!-- UTM Capture & Passthrough -->
+  <script>
+  (function() {
+    // Capture UTMs from URL and store in sessionStorage
+    var params = new URLSearchParams(window.location.search);
+    var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+    utmKeys.forEach(function(key) {
+      if (params.get(key)) {
+        sessionStorage.setItem(key, params.get(key));
+      }
+    });
+
+    // Helper: get stored UTMs as object
+    window.getStoredUTMs = function() {
+      var utms = {};
+      utmKeys.forEach(function(key) {
+        var val = sessionStorage.getItem(key);
+        if (val) utms[key] = val;
+      });
+      return utms;
+    };
+
+    // Helper: append UTMs to any URL
+    window.appendUTMs = function(url) {
+      var utms = window.getStoredUTMs();
+      if (Object.keys(utms).length === 0) return url;
+      var u = new URL(url, window.location.origin);
+      Object.keys(utms).forEach(function(k) { u.searchParams.set(k, utms[k]); });
+      return u.toString();
+    };
+  })();
+  </script>
+</head>
+<body>
+<!-- GTM noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KP3CB263" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <script>
+  fbq('track', 'InitiateCheckout', {
+    content_name: 'Peregrino Sol Founding Guest Deposit',
+    currency: 'USD',
+    value: 50,
+    num_items: 1
+  });
+  </script>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand">Wander Glamping</a>
+  <div class="nav-secure">
+    <div class="lock-icon"><div class="lock-dot"></div></div>
+    Secure checkout
+  </div>
+</nav>
+
+<!-- PROGRESS -->
+<div class="progress-bar">
+  <div class="step done"><div class="step-num">✓</div><span class="step-label">Cabin</span></div>
+  <div class="step-divider"></div>
+  <div class="step done"><div class="step-num">✓</div><span class="step-label">Founding Guest</span></div>
+  <div class="step-divider"></div>
+  <div class="step active"><div class="step-num">3</div><span class="step-label">Reserve</span></div>
+  <div class="step-divider"></div>
+  <div class="step pending"><div class="step-num">4</div><span class="step-label">Confirmed</span></div>
+</div>
+
+<div class="page-layout">
+
+  <!-- FORM -->
+  <div class="form-side">
+
+    <div class="form-section">
+      <div class="form-heading">Your <span>details</span></div>
+      <div class="field-row">
+        <div class="field"><label>First name</label><input type="text" id="firstName" placeholder="Jane" required></div>
+        <div class="field"><label>Last name</label><input type="text" id="lastName" placeholder="Smith" required></div>
+      </div>
+      <div class="field-row single">
+        <div class="field"><label>Email address</label><input type="email" id="email" placeholder="jane@example.com" required></div>
+      </div>
+      <div class="field-row single">
+        <div class="field"><label>Phone <span style="opacity:.5;font-size:10px;">(optional)</span></label><input type="tel" id="phone" placeholder="+1 (555) 000-0000"></div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-heading">Your <span>trip</span></div>
+      <div class="for-two-badge">
+        <span class="heart">♥</span>
+        <span>Peregrino Sol is designed for <strong>two guests.</strong> Private, unhurried, completely your own.</span>
+      </div>
+      <div class="chip-label">Preferred travel season</div>
+      <div class="chips">
+        <div class="chip" onclick="toggleChip(this)">Spring 2026</div>
+        <div class="chip" onclick="toggleChip(this)">Summer 2026</div>
+        <div class="chip" onclick="toggleChip(this)">Fall 2026</div>
+        <div class="chip" onclick="toggleChip(this)">Winter 2026</div>
+        <div class="chip" onclick="toggleChip(this)">Flexible</div>
+      </div>
+      <div class="field-row single" style="margin-bottom:16px;">
+        <div class="field">
+          <label>What's the occasion?</label>
+          <select id="occasion">
+            <option value="">Select one</option>
+            <option>Anniversary</option>
+            <option>Honeymoon</option>
+            <option>Birthday</option>
+            <option>Getaway</option>
+            <option>Friend trip</option>
+            <option>Just because</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row single" style="margin-bottom:16px;">
+        <div class="field">
+          <label>How did you hear about us?</label>
+          <select id="source">
+            <option value="">Select one</option>
+            <option>TikTok</option>
+            <option>Instagram</option>
+            <option>Facebook</option>
+            <option>Airbnb</option>
+            <option>Friend / word of mouth</option>
+            <option>Google</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row single">
+        <div class="field">
+          <label>Anything you'd like us to know? <span style="opacity:.5;font-size:10px;">(optional)</span></label>
+          <textarea id="notes" placeholder="Special requests, celebrations, dietary needs..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-heading">Payment <span>details</span></div>
+      <div class="payment-block">
+        <div class="payment-label">Secure payment via Stripe</div>
+        <div class="card-brands">
+          <span class="card-brand">VISA</span>
+          <span class="card-brand">MC</span>
+          <span class="card-brand">AMEX</span>
+          <span class="card-brand">DISCOVER</span>
+        </div>
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:16px;">
+          Clicking the button below will take you to our secure Stripe checkout page to complete your $50 deposit. Your card details are entered directly on Stripe — we never see or store your payment information.
+        </p>
+        <div class="stripe-badge">
+          <span>Secured by</span>
+          <span class="stripe-name">stripe</span>
+          <span>· 256-bit SSL encryption</span>
+        </div>
+      </div>
+
+      <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">Continue to secure payment — $50</button>
+      <div class="submit-note">
+        By reserving you agree to our <a href="#">terms</a> and <a href="#">refund policy</a>.<br>
+        Your $50 is fully refundable if your plans change — no questions asked.
+      </div>
+    </div>
+
+  </div><!-- /form-side -->
+
+  <!-- SUMMARY -->
+  <div class="summary-side">
+    <div class="summary-heading">Order summary</div>
+    <div class="summary-product">
+      <div class="summary-tag">Founding Member</div>
+      <div class="summary-title">Peregrino Sol O-Frame Cabin</div>
+      <div class="summary-sub">Award-winning architectural retreat<br>Paris, TX · Opening July 2026</div>
+      <div class="for-two-line">Designed for two guests</div>
+    </div>
+    <div class="summary-line"><span class="s-label">Founding deposit</span><span class="s-val">$50.00</span></div>
+    <div class="summary-line"><span class="s-label">Applied to first stay</span><span class="s-val gold">− $50.00</span></div>
+    <div class="summary-line"><span class="s-label">Taxes & fees</span><span class="s-val">$0.00</span></div>
+    <div class="summary-total"><span class="total-label">Due today</span><span class="total-val">$50</span></div>
+
+    <div class="inclusions">
+      <div class="inc-label">Included with your membership</div>
+      <div class="inc-item"><span class="inc-mark">✦</span><span class="inc-text">$50 credit applied to your first stay</span></div>
+      <div class="inc-item"><span class="inc-mark">✦</span><span class="inc-text">Rate locked in before public launch pricing</span></div>
+      <div class="inc-item"><span class="inc-mark">✦</span><span class="inc-text">48-hour private booking window on May 1</span></div>
+      <div class="inc-item"><span class="inc-mark">✦</span><span class="inc-text">Welcome basket, s'mores kit + firewood bundle on arrival</span></div>
+      <div class="inc-item"><span class="inc-mark">✦</span><span class="inc-text">Sauna pre-heated and ready when you arrive</span></div>
+      <div class="inc-item"><span class="inc-mark">✦</span><span class="inc-text">Pre-arrival concierge — we set everything up exactly how you want it</span></div>
+      <div class="inc-item"><span class="inc-mark">✦</span><span class="inc-text">Early 1pm check-in + late 1pm checkout — arrive sooner, linger longer</span></div>
+    </div>
+
+    <div class="trust-badges">
+      <div class="trust-b">Fully refundable · no questions asked</div>
+      <div class="trust-b">Secure payment via Stripe</div>
+      <div class="trust-b">Wander Glamping · Airbnb Superhost 4.96★</div>
+      <div class="trust-b">Featured in Dwell Magazine</div>
+    </div>
+  </div>
+
+</div><!-- /page-layout -->
+
+<footer class="site-footer">
+  <span class="footer-brand">Wander Glamping</span>
+  <span class="footer-note">sol.gowanderglamping.com · Paris, TX · info@gowanderglamping.com</span>
+</footer>
+
+<script>
+  // Pre-fill email from index.html if available
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedEmail = sessionStorage.getItem('guestEmail');
+    if (savedEmail) {
+      const emailField = document.getElementById('email');
+      if (emailField) emailField.value = savedEmail;
+    }
+  });
+
+  function toggleChip(el) { el.classList.toggle('selected'); }
+
+  function handleSubmit() {
+    const email = document.getElementById('email').value;
+    const firstName = document.getElementById('firstName').value;
+    if (!email || !firstName) {
+      alert('Please fill in your name and email address to continue.');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Redirecting to secure payment...';
+    btn.disabled = true;
+
+    // Collect selected seasons
+    const seasons = [...document.querySelectorAll('.chip.selected')].map(c => c.textContent);
+
+    // Store guest data + UTMs in sessionStorage for confirmation page
+    sessionStorage.setItem('guestData', JSON.stringify({
+      firstName: document.getElementById('firstName').value,
+      lastName: document.getElementById('lastName').value,
+      email: email,
+      occasion: document.getElementById('occasion').value,
+      source: document.getElementById('source').value,
+      seasons: seasons,
+      notes: document.getElementById('notes').value,
+      confirmNum: 'WG-2026-' + String(Math.floor(Math.random() * 7) + 3).padStart(4, '0'),
+      ...window.getStoredUTMs()
+    }));
+
+    // Redirect to Stripe — append UTMs to track which source converted
+    // TODO: Replace with live Stripe payment link
+    // window.location.href = window.appendUTMs('https://buy.stripe.com/YOUR_PAYMENT_LINK');
+
+    // For now — redirect to confirmation (remove this in production)
+    setTimeout(() => { window.location.href = 'confirmation.html'; }, 1200);
+  }
+
+  // Card number formatting
+  document.addEventListener('DOMContentLoaded', () => {
+    const cardInput = document.querySelector('input[placeholder="1234 5678 9012 3456"]');
+    if (cardInput) {
+      cardInput.addEventListener('input', (e) => {
+        let val = e.target.value.replace(/\D/g, '').substring(0, 16);
+        e.target.value = val.replace(/(.{4})/g, '$1 ').trim();
+      });
+    }
+    const expInput = document.querySelector('input[placeholder="MM / YY"]');
+    if (expInput) {
+      expInput.addEventListener('input', (e

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're In — Peregrino Sol · Wander Glamping</title>
+  <meta name="description" content="Welcome to Peregrino Sol. Your founding guest spot is confirmed.">
+  <style id="shared-css">
+/* ============================================
+   PEREGRINO SOL — WANDER GLAMPING
+   Shared styles · sol.gowanderglamping.com
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #F5F0E8;
+  --dark: #1A1A14;
+  --dark-2: #2C2418;
+  --dark-3: #1A1208;
+  --warm: #8B6F47;
+  --accent: #C4A46B;
+  --accent-light: #D4B47B;
+  --muted: #6B6456;
+  --border: rgba(196,164,107,0.18);
+  --border-strong: rgba(196,164,107,0.3);
+  --subtle: rgba(245,240,232,0.04);
+  --text-muted: rgba(245,240,232,0.55);
+  --text-dim: rgba(245,240,232,0.35);
+  --text-ghost: rgba(245,240,232,0.2);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--dark);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- TYPOGRAPHY ---- */
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  line-height: 1.1;
+}
+em { font-style: italic; color: var(--accent); }
+a { color: inherit; text-decoration: none; }
+
+/* ---- NAV ---- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--border);
+  background: rgba(26,26,20,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 300; color: var(--cream);
+  letter-spacing: 0.05em;
+}
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-size: 11px; font-weight: 400; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--text-dim);
+  transition: color 0.2s;
+}
+.nav-link:hover { color: var(--accent); }
+.nav-cta {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--dark);
+  background: var(--accent); padding: 10px 24px;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--accent-light); }
+
+/* ---- BUTTONS ---- */
+.btn-primary {
+  display: inline-block;
+  background: var(--accent); color: var(--dark);
+  font-family: 'DM Sans', sans-serif; font-size: 12px;
+  font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 16px 40px; border: none; cursor: pointer;
+  transition: background 0.2s;
+  text-align: center;
+}
+.btn-primary:hover { background: var(--accent-light); }
+
+.btn-ghost {
+  display: inline-block;
+  font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-dim);
+  border-bottom: 1px solid rgba(196,164,107,0.2);
+  padding-bottom: 2px; transition: color 0.2s;
+}
+.btn-ghost:hover { color: var(--cream); }
+
+/* ---- EYEBROW ---- */
+.eyebrow {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 16px;
+}
+.eyebrow-line { display: block; width: 32px; height: 1px; background: var(--accent); }
+
+/* ---- SECTION LABEL ---- */
+.section-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 28px;
+  display: flex; align-items: center; gap: 16px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: rgba(196,164,107,0.15); }
+
+/* ---- PROGRESS BAR ---- */
+.progress-bar {
+  padding: 16px 48px;
+  display: flex; align-items: center;
+  border-bottom: 1px solid var(--border);
+  background: rgba(196,164,107,0.03);
+}
+.step { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+.step-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 500;
+}
+.step.done .step-num { background: rgba(196,164,107,0.15); color: var(--accent); border: 1px solid var(--accent); }
+.step.done .step-label { color: var(--text-dim); }
+.step.active .step-num { background: var(--accent); color: var(--dark); border: 1px solid var(--accent); }
+.step.active .step-label { color: var(--cream); }
+.step.pending .step-num { background: transparent; color: var(--text-ghost); border: 1px solid rgba(196,164,107,0.15); }
+.step.pending .step-label { color: var(--text-ghost); }
+.step-divider { flex: 1; height: 1px; background: var(--border); margin: 0 16px; max-width: 60px; }
+
+/* ---- LOCK ICON ---- */
+.lock-icon {
+  width: 14px; height: 14px; border: 1.5px solid rgba(196,164,107,0.4);
+  border-radius: 2px; position: relative;
+  display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2px;
+}
+.lock-icon::before {
+  content: ''; position: absolute; top: -5px; left: 50%;
+  transform: translateX(-50%); width: 8px; height: 6px;
+  border: 1.5px solid rgba(196,164,107,0.4); border-bottom: none;
+  border-radius: 4px 4px 0 0;
+}
+.lock-dot { width: 3px; height: 3px; background: rgba(196,164,107,0.4); border-radius: 50%; }
+
+/* ---- FOOTER ---- */
+.site-footer {
+  padding: 32px 48px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 300; color: var(--text-dim);
+}
+.footer-note { font-size: 11px; color: var(--text-ghost); letter-spacing: 0.03em; }
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.animate-fade-up { animation: fadeUp 0.9s ease both; }
+.animate-fade-up-delay { animation: fadeUp 0.9s ease 0.2s both; }
+.animate-fade-up-delay-2 { animation: fadeUp 0.9s ease 0.4s both; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .site-footer { padding: 24px; }
+  .progress-bar { padding: 12px 24px; }
+  .step-label { display: none; }
+}
+
+</style>
+  <style>
+    body { padding-top: 81px; }
+
+    /* HERO */
+    .confirm-hero {
+      text-align: center; padding: 80px 48px 60px;
+      max-width: 720px; margin: 0 auto;
+    }
+    .confirm-icon {
+      width: 76px; height: 76px; border: 1px solid var(--accent);
+      border-radius: 50%; margin: 0 auto 36px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; animation: scaleIn 0.7s ease both;
+    }
+    .confirm-icon::before { content:''; position:absolute; inset:-9px; border-radius:50%; border:1px solid rgba(196,164,107,0.15); }
+    .confirm-icon::after { content:''; position:absolute; inset:-18px; border-radius:50%; border:1px solid rgba(196,164,107,0.07); }
+    .confirm-mark { color: var(--accent); font-size: 28px; line-height: 1; }
+    .confirm-hero h1 { font-size: clamp(36px, 5vw, 60px); color: var(--cream); margin-bottom: 20px; }
+    .confirm-hero p { font-size: 15px; color: var(--text-muted); line-height: 1.85; max-width: 500px; margin: 0 auto; }
+
+    /* CONFIRMATION CARD */
+    .confirm-wrap { padding: 0 32px 32px; max-width: 800px; margin: 0 auto; }
+    .confirm-card { border: 1px solid var(--border); margin-bottom: 28px; animation: fadeUp 0.8s ease 0.15s both; }
+    .card-header {
+      padding: 22px 36px; border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+      background: rgba(196,164,107,0.04);
+    }
+    .card-header-title { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
+    .confirm-num { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--accent); }
+    .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(196,164,107,0.07); }
+    .detail-cell { background: var(--dark); padding: 20px 24px; }
+    .dc-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-ghost); margin-bottom: 7px; }
+    .dc-val { font-size: 15px; font-weight: 300; color: var(--cream); }
+    .dc-val.gold { color: var(--accent); font-family: 'Cormorant Garamond', serif; font-size: 22px; }
+
+    /* TIMELINE */
+    .timeline-section { padding: 0 32px 32px; max-width: 800px; margin: 0 auto; }
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid rgba(196,164,107,0.08); }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-marker { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+    .tl-dot { width: 38px; height: 38px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; color: var(--accent); flex-shrink: 0; }
+    .tl-line { width: 1px; flex: 1; background: rgba(196,164,107,0.08); margin-top: 8px; min-height: 24px; }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-content { padding-top: 6px; }
+    .tl-when { font-size: 10px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+    .tl-title { font-size: 16px; font-weight: 400; color: var(--cream); margin-bottom: 7px; }
+    .tl-desc { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
+
+    /* SOCIAL */
+    .social-section { padding: 0 32px 32px; max-width: 800px; margin: 0 auto; }
+    .social-card {
+      border: 1px solid var(--border); padding: 40px 36px;
+      display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+      background: rgba(196,164,107,0.03);
+    }
+    .social-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); margin-bottom: 10px; }
+    .social-card p { font-size: 13px; color: var(--text-muted); line-height: 1.75; max-width: 380px; }
+    .social-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-social {
+      padding: 12px 24px; border: 1px solid var(--border);
+      font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); text-decoration: none; cursor: pointer;
+      transition: all 0.2s; display: flex; align-items: center; gap: 8px; font-family: 'Jost', sans-serif;
+    }
+    .btn-social:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* REFER */
+    .refer-section { padding: 0 32px 80px; max-width: 800px; margin: 0 auto; }
+    .refer-card { border: 1px solid var(--border); padding: 36px; }
+    .refer-inner { display: flex; gap: 36px; align-items: center; flex-wrap: wrap; }
+    .refer-text { flex: 1; min-width: 200px; }
+    .refer-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--cream); margin-bottom: 8px; }
+    .refer-text p { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
+    .refer-link-wrap { flex: 1; min-width: 220px; }
+    .refer-link { display: flex; border: 1px solid var(--border); overflow: hidden; }
+    .refer-link input { flex: 1; background: rgba(245,240,232,0.03); border: none; padding: 13px 16px; font-size: 12px; color: var(--text-muted); font-family: 'Jost', sans-serif; outline: none; min-width: 0; }
+    .refer-link button { background: var(--accent); color: var(--dark); border: none; padding: 13px 20px; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background 0.2s; font-family: 'Jost', sans-serif; }
+    .refer-link button:hover { background: var(--accent-light); }
+
+    @media (max-width: 768px) {
+      .confirm-hero { padding: 48px 24px 40px; }
+      .confirm-wrap { padding: 0 16px 24px; }
+      .card-header { padding: 18px 24px; }
+      .details-grid { grid-template-columns: 1fr; }
+      .timeline-section { padding: 0 16px 24px; }
+      .social-section { padding: 0 16px 24px; }
+      .social-card { flex-direction: column; padding: 28px 24px; }
+      .refer-section { padding: 0 16px 48px; }
+      .refer-inner { flex-direction: column; }
+    }
+  </style>
+
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KP3CB263');</script>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','9865529503490887');
+  </script>
+
+  <!-- UTM Capture & Passthrough -->
+  <script>
+  (function() {
+    // Capture UTMs from URL and store in sessionStorage
+    var params = new URLSearchParams(window.location.search);
+    var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+    utmKeys.forEach(function(key) {
+      if (params.get(key)) {
+        sessionStorage.setItem(key, params.get(key));
+      }
+    });
+
+    // Helper: get stored UTMs as object
+    window.getStoredUTMs = function() {
+      var utms = {};
+      utmKeys.forEach(function(key) {
+        var val = sessionStorage.getItem(key);
+        if (val) utms[key] = val;
+      });
+      return utms;
+    };
+
+    // Helper: append UTMs to any URL
+    window.appendUTMs = function(url) {
+      var utms = window.getStoredUTMs();
+      if (Object.keys(utms).length === 0) return url;
+      var u = new URL(url, window.location.origin);
+      Object.keys(utms).forEach(function(k) { u.searchParams.set(k, utms[k]); });
+      return u.toString();
+    };
+  })();
+  </script>
+</head>
+<body>
+<!-- GTM noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KP3CB263" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <script>
+  fbq('track', 'Purchase', {
+    content_name: 'Peregrino Sol Founding Guest Deposit',
+    currency: 'USD',
+    value: 50,
+    num_items: 1
+  });
+  </script>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand">Wander Glamping</a>
+  <span style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);">Step 4 of 4 — Confirmed</span>
+</nav>
+
+<!-- PROGRESS -->
+<div class="progress-bar">
+  <div class="step done"><div class="step-num">✓</div><span class="step-label">Cabin</span></div>
+  <div class="step-divider"></div>
+  <div class="step done"><div class="step-num">✓</div><span class="step-label">Founding Guest</span></div>
+  <div class="step-divider"></div>
+  <div class="step done"><div class="step-num">✓</div><span class="step-label">Reserve</span></div>
+  <div class="step-divider"></div>
+  <div class="step active"><div class="step-num">✓</div><span class="step-label">Confirmed</span></div>
+</div>
+
+<!-- HERO -->
+<div class="confirm-hero animate-fade-up">
+  <div class="confirm-icon">
+    <span class="confirm-mark">✦</span>
+  </div>
+  <div class="eyebrow" style="justify-content:center;">
+    <span class="eyebrow-line"></span>
+    You're in
+    <span class="eyebrow-line"></span>
+  </div>
+  <h1>Welcome to <em>Peregrino Sol,</em><br>founding guest.</h1>
+  <p>Your spot is reserved. A confirmation has been sent to your email. We'll be in touch as we get closer to opening — you'll be first through the door.</p>
+</div>
+
+<!-- CONFIRMATION CARD -->
+<div class="confirm-wrap">
+  <div class="confirm-card">
+    <div class="card-header">
+      <span class="card-header-title">Reservation confirmation</span>
+      <span class="confirm-num" id="confirmNum">#WG-2026-0003</span>
+    </div>
+    <div class="details-grid">
+      <div class="detail-cell">
+        <div class="dc-label">Guest</div>
+        <div class="dc-val" id="guestName">—</div>
+      </div>
+      <div class="detail-cell">
+        <div class="dc-label">Membership</div>
+        <div class="dc-val">Founding Guest</div>
+      </div>
+      <div class="detail-cell">
+        <div class="dc-label">Deposit paid</div>
+        <div class="dc-val gold">$50.00</div>
+      </div>
+      <div class="detail-cell">
+        <div class="dc-label">Stay credit</div>
+        <div class="dc-val gold">$50.00</div>
+      </div>
+      <div class="detail-cell">
+        <div class="dc-label">Property</div>
+        <div class="dc-val">Peregrino Sol O-Frame Cabin</div>
+      </div>
+      <div class="detail-cell">
+        <div class="dc-label">Expected opening</div>
+        <div class="dc-val">July 2026</div>
+      </div>
+      <div class="detail-cell">
+        <div class="dc-label">Refund policy</div>
+        <div class="dc-val">Fully refundable</div>
+      </div>
+      <div class="detail-cell">
+        <div class="dc-label">Email sent to</div>
+        <div class="dc-val" id="guestEmail" style="font-size:13px;">—</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <div class="section-label">What happens next</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-marker"><div class="tl-dot">1</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-when">Right now</div>
+        <div class="tl-title">Check your inbox</div>
+        <div class="tl-desc">A confirmation email is on its way with your reservation details and everything you need to know as a founding guest at Peregrino Sol.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-marker"><div class="tl-dot">2</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-when">Coming weeks</div>
+        <div class="tl-title">Behind the scenes access</div>
+        <div class="tl-desc">As a founding guest you'll get exclusive updates — construction milestones, interior reveals, and a first look at the finished cabin before anyone else sees it.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-marker"><div class="tl-dot">3</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-when">Before July 2026</div>
+        <div class="tl-title">First pick of dates</div>
+        <div class="tl-desc">You'll receive your private booking link before Peregrino Sol is listed anywhere publicly. Choose your dates before the calendar opens to the world.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-marker"><div class="tl-dot">4</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-when">48 hours before arrival</div>
+        <div class="tl-title">Your pre-arrival concierge</div>
+        <div class="tl-desc">We'll reach out to set everything up exactly how you want it — cabin temperature, hot tub heat, check-in time, any occasion or special notes. You arrive to a cabin that already knows you.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-marker"><div class="tl-dot">5</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-when">On arrival</div>
+        <div class="tl-title">Everything is ready for you</div>
+        <div class="tl-desc">Check in from 1pm. Your welcome basket, s'mores kit, and firewood bundle are waiting. The sauna is pre-heated. The hot tub is at your temperature. Nothing to set up. And when it's time to leave — you have until 1pm. No rush.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="social-section">
+  <div class="section-label">Follow the journey</div>
+  <div class="social-card">
+    <div>
+      <h3>Watch Peregrino Sol <em>come to life.</em></h3>
+      <p>We document everything — from site prep to final reveal. Follow us on TikTok and Instagram for behind-the-scenes updates as we build toward opening day.</p>
+    </div>
+    <div class="social-btns">
+      <a href="https://tiktok.com/@wanderglamping" target="_blank" class="btn-social">TikTok · 1M+ views</a>
+      <a href="https://instagram.com/wanderglamping" target="_blank" class="btn-social">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- REFER -->
+<div class="refer-section">
+  <div class="section-label">Know someone who'd love this?</div>
+  <div class="refer-card">
+    <div class="refer-inner">
+      <div class="refer-text">
+        <h3>Share the founding offer</h3>
+        <p>The Founding Guest window closes May 1. If you know someone who'd love this experience, share your link before it closes.</p>
+      </div>
+      <div class="refer-link-wrap">
+        <div class="refer-link">
+          <input type="text" value="sol.gowanderglamping.com/vip" readonly id="shareLink">
+          <button onclick="copyLink()">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <span class="footer-brand">Wander Glamping</span>
+  <span class="footer-note">sol.gowanderglamping.com · Paris, TX · info@gowanderglamping.com</span>
+</footer>
+
+<script>
+  // Restore guest data from checkout
+  document.addEventListener('DOMContentLoaded', () => {
+    const raw = sessionStorage.getItem('guestData');
+    if (raw) {
+      const d = JSON.parse(raw);
+      if (d.firstName) {
+        document.getElementById('guestName').textContent = d.firstName + ' ' + (d.lastName || '');
+      }
+      if (d.email) {
+        document.getElementById('guestEmail').textContent = d.email;
+      }
+      if (d.confirmNum) {
+        document.getElementById('confirmNum').textContent =
