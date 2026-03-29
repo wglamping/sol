@@ -6,11 +6,6 @@
   <title>You're In — Peregrino Sol · Wander Glamping</title>
   <meta name="description" content="Welcome to Peregrino Sol. Your founding guest spot is confirmed.">
   <style id="shared-css">
-/* ============================================
-   PEREGRINO SOL — WANDER GLAMPING
-   Shared styles · sol.gowanderglamping.com
-   ============================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,16 +38,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---- TYPOGRAPHY ---- */
-h1, h2, h3, h4 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  line-height: 1.1;
-}
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1; }
 em { font-style: italic; color: var(--accent); }
 a { color: inherit; text-decoration: none; }
 
-/* ---- NAV ---- */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 20px 48px;
@@ -62,66 +51,8 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-.nav-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px; font-weight: 300; color: var(--cream);
-  letter-spacing: 0.05em;
-}
-.nav-links { display: flex; align-items: center; gap: 32px; }
-.nav-link {
-  font-size: 11px; font-weight: 400; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--text-dim);
-  transition: color 0.2s;
-}
-.nav-link:hover { color: var(--accent); }
-.nav-cta {
-  font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--dark);
-  background: var(--accent); padding: 10px 24px;
-  transition: background 0.2s;
-}
-.nav-cta:hover { background: var(--accent-light); }
+.nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--cream); letter-spacing: 0.05em; }
 
-/* ---- BUTTONS ---- */
-.btn-primary {
-  display: inline-block;
-  background: var(--accent); color: var(--dark);
-  font-family: 'DM Sans', sans-serif; font-size: 12px;
-  font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 16px 40px; border: none; cursor: pointer;
-  transition: background 0.2s;
-  text-align: center;
-}
-.btn-primary:hover { background: var(--accent-light); }
-
-.btn-ghost {
-  display: inline-block;
-  font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--text-dim);
-  border-bottom: 1px solid rgba(196,164,107,0.2);
-  padding-bottom: 2px; transition: color 0.2s;
-}
-.btn-ghost:hover { color: var(--cream); }
-
-/* ---- EYEBROW ---- */
-.eyebrow {
-  font-size: 11px; font-weight: 500;
-  letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 20px;
-  display: flex; align-items: center; gap: 16px;
-}
-.eyebrow-line { display: block; width: 32px; height: 1px; background: var(--accent); }
-
-/* ---- SECTION LABEL ---- */
-.section-label {
-  font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
-  text-transform: uppercase; color: var(--accent);
-  margin-bottom: 28px;
-  display: flex; align-items: center; gap: 16px;
-}
-.section-label::after { content: ''; flex: 1; height: 1px; background: rgba(196,164,107,0.15); }
-
-/* ---- PROGRESS BAR ---- */
 .progress-bar {
   padding: 16px 48px;
   display: flex; align-items: center;
@@ -129,11 +60,7 @@ a { color: inherit; text-decoration: none; }
   background: rgba(196,164,107,0.03);
 }
 .step { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
-.step-num {
-  width: 24px; height: 24px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 500;
-}
+.step-num { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; }
 .step.done .step-num { background: rgba(196,164,107,0.15); color: var(--accent); border: 1px solid var(--accent); }
 .step.done .step-label { color: var(--text-dim); }
 .step.active .step-num { background: var(--accent); color: var(--dark); border: 1px solid var(--accent); }
@@ -142,87 +69,40 @@ a { color: inherit; text-decoration: none; }
 .step.pending .step-label { color: var(--text-ghost); }
 .step-divider { flex: 1; height: 1px; background: var(--border); margin: 0 16px; max-width: 60px; }
 
-/* ---- LOCK ICON ---- */
-.lock-icon {
-  width: 14px; height: 14px; border: 1.5px solid rgba(196,164,107,0.4);
-  border-radius: 2px; position: relative;
-  display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2px;
-}
-.lock-icon::before {
-  content: ''; position: absolute; top: -5px; left: 50%;
-  transform: translateX(-50%); width: 8px; height: 6px;
-  border: 1.5px solid rgba(196,164,107,0.4); border-bottom: none;
-  border-radius: 4px 4px 0 0;
-}
-.lock-dot { width: 3px; height: 3px; background: rgba(196,164,107,0.4); border-radius: 50%; }
-
-/* ---- FOOTER ---- */
-.site-footer {
-  padding: 32px 48px;
-  border-top: 1px solid var(--border);
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
-}
-.footer-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px; font-weight: 300; color: var(--text-dim);
-}
+.site-footer { padding: 32px 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; color: var(--text-dim); }
 .footer-note { font-size: 11px; color: var(--text-ghost); letter-spacing: 0.03em; }
 
-/* ---- ANIMATIONS ---- */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes scaleIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 .animate-fade-up { animation: fadeUp 0.9s ease both; }
-.animate-fade-up-delay { animation: fadeUp 0.9s ease 0.2s both; }
-.animate-fade-up-delay-2 { animation: fadeUp 0.9s ease 0.4s both; }
 
-/* ---- RESPONSIVE ---- */
+.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 16px; }
+.eyebrow-line { display: block; width: 32px; height: 1px; background: var(--accent); }
+.section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; display: flex; align-items: center; gap: 16px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: rgba(196,164,107,0.15); }
+
 @media (max-width: 768px) {
   .nav { padding: 16px 24px; }
-  .nav-links { display: none; }
   .site-footer { padding: 24px; }
   .progress-bar { padding: 12px 24px; }
   .step-label { display: none; }
 }
-
 </style>
   <style>
     body { padding-top: 81px; }
 
-    /* HERO */
-    .confirm-hero {
-      text-align: center; padding: 80px 48px 60px;
-      max-width: 720px; margin: 0 auto;
-    }
-    .confirm-icon {
-      width: 76px; height: 76px; border: 1px solid var(--accent);
-      border-radius: 50%; margin: 0 auto 36px;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; animation: scaleIn 0.7s ease both;
-    }
+    .confirm-hero { text-align: center; padding: 80px 48px 60px; max-width: 720px; margin: 0 auto; }
+    .confirm-icon { width: 76px; height: 76px; border: 1px solid var(--accent); border-radius: 50%; margin: 0 auto 36px; display: flex; align-items: center; justify-content: center; position: relative; animation: scaleIn 0.7s ease both; }
     .confirm-icon::before { content:''; position:absolute; inset:-9px; border-radius:50%; border:1px solid rgba(196,164,107,0.15); }
     .confirm-icon::after { content:''; position:absolute; inset:-18px; border-radius:50%; border:1px solid rgba(196,164,107,0.07); }
     .confirm-mark { color: var(--accent); font-size: 28px; line-height: 1; }
     .confirm-hero h1 { font-size: clamp(36px, 5vw, 60px); color: var(--cream); margin-bottom: 20px; }
     .confirm-hero p { font-size: 15px; color: var(--text-muted); line-height: 1.85; max-width: 500px; margin: 0 auto; }
 
-    /* CONFIRMATION CARD */
     .confirm-wrap { padding: 0 32px 32px; max-width: 800px; margin: 0 auto; }
     .confirm-card { border: 1px solid var(--border); margin-bottom: 28px; animation: fadeUp 0.8s ease 0.15s both; }
-    .card-header {
-      padding: 22px 36px; border-bottom: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
-      background: rgba(196,164,107,0.04);
-    }
+    .card-header { padding: 22px 36px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; background: rgba(196,164,107,0.04); }
     .card-header-title { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
     .confirm-num { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--accent); }
     .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(196,164,107,0.07); }
@@ -231,7 +111,6 @@ a { color: inherit; text-decoration: none; }
     .dc-val { font-size: 15px; font-weight: 300; color: var(--cream); }
     .dc-val.gold { color: var(--accent); font-family: 'Cormorant Garamond', serif; font-size: 22px; }
 
-    /* TIMELINE */
     .timeline-section { padding: 0 32px 32px; max-width: 800px; margin: 0 auto; }
     .timeline { display: flex; flex-direction: column; }
     .tl-item { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid rgba(196,164,107,0.08); }
@@ -245,25 +124,14 @@ a { color: inherit; text-decoration: none; }
     .tl-title { font-size: 16px; font-weight: 400; color: var(--cream); margin-bottom: 7px; }
     .tl-desc { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
 
-    /* SOCIAL */
     .social-section { padding: 0 32px 32px; max-width: 800px; margin: 0 auto; }
-    .social-card {
-      border: 1px solid var(--border); padding: 40px 36px;
-      display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
-      background: rgba(196,164,107,0.03);
-    }
+    .social-card { border: 1px solid var(--border); padding: 40px 36px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; background: rgba(196,164,107,0.03); }
     .social-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); margin-bottom: 10px; }
     .social-card p { font-size: 13px; color: var(--text-muted); line-height: 1.75; max-width: 380px; }
     .social-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-social {
-      padding: 12px 24px; border: 1px solid var(--border);
-      font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--text-muted); text-decoration: none; cursor: pointer;
-      transition: all 0.2s; display: flex; align-items: center; gap: 8px; font-family: 'Jost', sans-serif;
-    }
+    .btn-social { padding: 12px 24px; border: 1px solid var(--border); font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 8px; }
     .btn-social:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* REFER */
     .refer-section { padding: 0 32px 80px; max-width: 800px; margin: 0 auto; }
     .refer-card { border: 1px solid var(--border); padding: 36px; }
     .refer-inner { display: flex; gap: 36px; align-items: center; flex-wrap: wrap; }
@@ -271,10 +139,9 @@ a { color: inherit; text-decoration: none; }
     .refer-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--cream); margin-bottom: 8px; }
     .refer-text p { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
     .refer-link-wrap { flex: 1; min-width: 220px; }
-    .refer-link { display: flex; border: 1px solid var(--border); overflow: hidden; }
-    .refer-link input { flex: 1; background: rgba(245,240,232,0.03); border: none; padding: 13px 16px; font-size: 12px; color: var(--text-muted); font-family: 'Jost', sans-serif; outline: none; min-width: 0; }
-    .refer-link button { background: var(--accent); color: var(--dark); border: none; padding: 13px 20px; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background 0.2s; font-family: 'Jost', sans-serif; }
-    .refer-link button:hover { background: var(--accent-light); }
+    .share-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .share-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--border); color: var(--text-muted); cursor: pointer; transition: all 0.2s; background: transparent; text-decoration: none; }
+    .share-btn:hover { border-color: var(--accent); color: var(--accent); }
 
     @media (max-width: 768px) {
       .confirm-hero { padding: 48px 24px 40px; }
@@ -292,7 +159,7 @@ a { color: inherit; text-decoration: none; }
   <!-- GTM -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KP3CB263');</script>
 
-  <!-- Meta Pixel -->
+  <!-- Meta Pixel — init + PageView first, Purchase fires on DOMContentLoaded -->
   <script>
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -300,53 +167,22 @@ a { color: inherit; text-decoration: none; }
   t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
   (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init','9865529503490887');
+  fbq('track','PageView');
   </script>
 
-  <!-- UTM Capture & Passthrough -->
+  <!-- UTM Capture -->
   <script>
   (function() {
-    // Capture UTMs from URL and store in sessionStorage
     var params = new URLSearchParams(window.location.search);
     var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
     utmKeys.forEach(function(key) {
-      if (params.get(key)) {
-        sessionStorage.setItem(key, params.get(key));
-      }
+      if (params.get(key)) sessionStorage.setItem(key, params.get(key));
     });
-
-    // Helper: get stored UTMs as object
-    window.getStoredUTMs = function() {
-      var utms = {};
-      utmKeys.forEach(function(key) {
-        var val = sessionStorage.getItem(key);
-        if (val) utms[key] = val;
-      });
-      return utms;
-    };
-
-    // Helper: append UTMs to any URL
-    window.appendUTMs = function(url) {
-      var utms = window.getStoredUTMs();
-      if (Object.keys(utms).length === 0) return url;
-      var u = new URL(url, window.location.origin);
-      Object.keys(utms).forEach(function(k) { u.searchParams.set(k, utms[k]); });
-      return u.toString();
-    };
   })();
   </script>
 </head>
 <body>
-<!-- GTM noscript -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KP3CB263" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-  <script>
-  fbq('track', 'Purchase', {
-    content_name: 'Peregrino Sol Founding Guest Deposit',
-    currency: 'USD',
-    value: 50,
-    num_items: 1
-  });
-  </script>
 
 <!-- NAV -->
 <nav class="nav">
@@ -387,38 +223,14 @@ a { color: inherit; text-decoration: none; }
       <span class="confirm-num">Peregrino Sol · July 2026</span>
     </div>
     <div class="details-grid">
-      <div class="detail-cell">
-        <div class="dc-label">Guest</div>
-        <div class="dc-val" id="guestName">—</div>
-      </div>
-      <div class="detail-cell">
-        <div class="dc-label">Membership</div>
-        <div class="dc-val">Founding Guest</div>
-      </div>
-      <div class="detail-cell">
-        <div class="dc-label">Deposit paid</div>
-        <div class="dc-val gold">$50.00</div>
-      </div>
-      <div class="detail-cell">
-        <div class="dc-label">Booking window</div>
-        <div class="dc-val">May 1, 2026 — 48 hrs private access</div>
-      </div>
-      <div class="detail-cell">
-        <div class="dc-label">Property</div>
-        <div class="dc-val">Peregrino Sol O-Frame Cabin</div>
-      </div>
-      <div class="detail-cell">
-        <div class="dc-label">Expected opening</div>
-        <div class="dc-val">July 2026</div>
-      </div>
-      <div class="detail-cell">
-        <div class="dc-label">Refund policy</div>
-        <div class="dc-val">Fully refundable</div>
-      </div>
-      <div class="detail-cell">
-        <div class="dc-label">Email sent to</div>
-        <div class="dc-val" id="guestEmail" style="font-size:13px;">—</div>
-      </div>
+      <div class="detail-cell"><div class="dc-label">Guest</div><div class="dc-val" id="guestName">—</div></div>
+      <div class="detail-cell"><div class="dc-label">Membership</div><div class="dc-val">Founding Guest</div></div>
+      <div class="detail-cell"><div class="dc-label">Deposit paid</div><div class="dc-val gold">$50.00</div></div>
+      <div class="detail-cell"><div class="dc-label">Booking window</div><div class="dc-val">May 1, 2026 — 48 hrs private access</div></div>
+      <div class="detail-cell"><div class="dc-label">Property</div><div class="dc-val">Peregrino Sol O-Frame Cabin</div></div>
+      <div class="detail-cell"><div class="dc-label">Expected opening</div><div class="dc-val">July 2026</div></div>
+      <div class="detail-cell"><div class="dc-label">Refund policy</div><div class="dc-val">Fully refundable</div></div>
+      <div class="detail-cell"><div class="dc-label">Email sent to</div><div class="dc-val" id="guestEmail" style="font-size:13px;">—</div></div>
     </div>
   </div>
 </div>
@@ -446,7 +258,7 @@ a { color: inherit; text-decoration: none; }
     <div class="tl-item">
       <div class="tl-marker"><div class="tl-dot">3</div><div class="tl-line"></div></div>
       <div class="tl-content">
-        <div class="tl-when">Before July 2026</div>
+        <div class="tl-when">May 1, 2026</div>
         <div class="tl-title">First pick of dates</div>
         <div class="tl-desc">You'll receive your private booking link before Peregrino Sol is listed anywhere publicly. Choose your dates before the calendar opens to the world.</div>
       </div>
@@ -464,7 +276,7 @@ a { color: inherit; text-decoration: none; }
       <div class="tl-content">
         <div class="tl-when">On arrival</div>
         <div class="tl-title">Everything is ready for you</div>
-        <div class="tl-desc">Check in from 1pm. Your welcome basket, s'mores kit, and firewood bundle are waiting. The sauna is pre-heated. The hot tub is at your temperature. Nothing to set up. And when it's time to leave — you have until 1pm. No rush.</div>
+        <div class="tl-desc">Check in from 1pm. Your welcome basket, s'mores kit, and firewood bundle are waiting. The sauna is pre-heated. The hot tub is at your temperature. Nothing to set up. Leave at 1pm — no rush.</div>
       </div>
     </div>
   </div>
@@ -496,16 +308,16 @@ a { color: inherit; text-decoration: none; }
       </div>
       <div class="refer-link-wrap">
         <div class="share-btns">
-          <a class="share-btn share-text" href="sms:?body=Just%20reserved%20my%20spot%20at%20Peregrino%20Sol%20%E2%80%94%20the%20first%20O-Frame%20cabin%20in%20America.%2090%20min%20from%20Dallas%2C%20opening%20July%202026.%20Founding%20Guest%20window%20closes%20May%201%3A%20sol.gowanderglamping.com%3Futm_source%3Dreferral%26utm_medium%3Dshare%26utm_campaign%3Dfounding-guest" title="Text a friend">
+          <a class="share-btn" href="sms:?body=Just%20reserved%20my%20spot%20at%20Peregrino%20Sol%20%E2%80%94%20the%20first%20O-Frame%20cabin%20in%20America.%2090%20min%20from%20Dallas%2C%20opening%20July%202026.%20Founding%20Guest%20window%20closes%20May%201%3A%20sol.gowanderglamping.com" title="Text a friend">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
           </a>
-          <a class="share-btn share-whatsapp" href="https://wa.me/?text=Just%20reserved%20my%20spot%20at%20Peregrino%20Sol%20%E2%80%94%20the%20first%20O-Frame%20cabin%20in%20America.%2090%20min%20from%20Dallas%2C%20opening%20July%202026.%20Founding%20Guest%20window%20closes%20May%201%3A%20sol.gowanderglamping.com%3Futm_source%3Dreferral%26utm_medium%3Dshare%26utm_campaign%3Dfounding-guest" target="_blank" title="Share on WhatsApp">
+          <a class="share-btn" href="https://wa.me/?text=Just%20reserved%20my%20spot%20at%20Peregrino%20Sol%20%E2%80%94%20the%20first%20O-Frame%20cabin%20in%20America.%2090%20min%20from%20Dallas%2C%20opening%20July%202026%3A%20sol.gowanderglamping.com" target="_blank" title="Share on WhatsApp">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </a>
-          <a class="share-btn share-email" href="mailto:?subject=You%20need%20to%20see%20this%20cabin&body=Just%20reserved%20my%20spot%20at%20Peregrino%20Sol%20%E2%80%94%20the%20first%20O-Frame%20cabin%20in%20America.%20Featured%20in%20Dwell%20Magazine%2C%2090%20min%20from%20Dallas%2C%20opening%20July%202026.%20Founding%20Guest%20window%20closes%20May%201%3A%20sol.gowanderglamping.com%3Futm_source%3Dreferral%26utm_medium%3Dshare%26utm_campaign%3Dfounding-guest" title="Share via email">
+          <a class="share-btn" href="mailto:?subject=You%20need%20to%20see%20this%20cabin&body=Just%20reserved%20my%20spot%20at%20Peregrino%20Sol%20%E2%80%94%20the%20first%20O-Frame%20cabin%20in%20America.%20Featured%20in%20Dwell%20Magazine%2C%2090%20min%20from%20Dallas%2C%20opening%20July%202026%3A%20sol.gowanderglamping.com" title="Share via email">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </a>
-          <button class="share-btn share-copy" onclick="copyLink()" title="Copy link">
+          <button class="share-btn" onclick="copyLink()" title="Copy link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
           </button>
         </div>
@@ -521,8 +333,17 @@ a { color: inherit; text-decoration: none; }
 </footer>
 
 <script>
-  // Restore guest data from checkout
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // Fire Purchase pixel event
+    fbq('track', 'Purchase', {
+      content_name: 'Peregrino Sol Founding Guest Deposit',
+      currency: 'USD',
+      value: 50,
+      num_items: 1
+    });
+
+    // Restore guest data from sessionStorage (set before Stripe redirect)
     try {
       const raw = sessionStorage.getItem('guestData');
       if (raw) {
@@ -535,12 +356,17 @@ a { color: inherit; text-decoration: none; }
           document.getElementById('guestEmail').textContent = d.email;
         }
       }
-    } catch(e) {
-      // sessionStorage unavailable or data missing — defaults show cleanly
-    }
-    // Legacy confirmNum block (no-op)
-    if (false) {
-      const d = {};
-      if (d.confirmNum) {
-        document.getElementById('confirmNum') &&
-        (document.getElementById('confirmNum').textContent =
+    } catch(e) {}
+  });
+
+  function copyLink() {
+    navigator.clipboard.writeText('https://sol.gowanderglamping.com').then(function() {
+      document.getElementById('copy-confirm').style.display = 'block';
+      setTimeout(function() {
+        document.getElementById('copy-confirm').style.display = 'none';
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
