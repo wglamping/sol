@@ -235,7 +235,7 @@ a { color: inherit; text-decoration: none; }
     .field label { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
     .field input, .field select, .field textarea {
       background: rgba(245,240,232,0.04); border: 1px solid var(--border);
-      color: var(--cream); font-family: 'Jost', sans-serif;
+      color: var(--cream); font-family: 'DM Sans', sans-serif;
       font-size: 14px; font-weight: 300; padding: 13px 16px; outline: none;
       transition: border-color 0.2s; -webkit-appearance: none; appearance: none;
     }
@@ -252,7 +252,7 @@ a { color: inherit; text-decoration: none; }
       padding: 9px 18px; border: 1px solid var(--border);
       font-size: 12px; color: rgba(245,240,232,0.45);
       cursor: pointer; transition: all 0.15s; letter-spacing: 0.05em;
-      user-select: none; font-family: 'Jost', sans-serif; font-weight: 300;
+      user-select: none; font-family: 'DM Sans', sans-serif; font-weight: 300;
     }
     .chip:hover { border-color: rgba(196,164,107,0.35); color: rgba(245,240,232,0.7); }
     .chip.selected { border-color: var(--accent); color: var(--accent); background: rgba(196,164,107,0.06); }
@@ -268,7 +268,7 @@ a { color: inherit; text-decoration: none; }
     /* SUBMIT */
     .btn-submit {
       width: 100%; background: var(--accent); color: var(--dark);
-      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 500;
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
       letter-spacing: 0.15em; text-transform: uppercase;
       padding: 18px; border: none; cursor: pointer; transition: background 0.2s; margin-bottom: 16px;
     }
@@ -333,16 +333,11 @@ a { color: inherit; text-decoration: none; }
   <!-- UTM Capture & Passthrough -->
   <script>
   (function() {
-    // Capture UTMs from URL and store in sessionStorage
     var params = new URLSearchParams(window.location.search);
     var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
     utmKeys.forEach(function(key) {
-      if (params.get(key)) {
-        sessionStorage.setItem(key, params.get(key));
-      }
+      if (params.get(key)) sessionStorage.setItem(key, params.get(key));
     });
-
-    // Helper: get stored UTMs as object
     window.getStoredUTMs = function() {
       var utms = {};
       utmKeys.forEach(function(key) {
@@ -351,8 +346,6 @@ a { color: inherit; text-decoration: none; }
       });
       return utms;
     };
-
-    // Helper: append UTMs to any URL
     window.appendUTMs = function(url) {
       var utms = window.getStoredUTMs();
       if (Object.keys(utms).length === 0) return url;
@@ -417,9 +410,6 @@ a { color: inherit; text-decoration: none; }
 
     <div class="form-section">
       <div class="form-heading">Your <span>stay</span></div>
-
-
-
       <div class="field-row single" style="margin-bottom:16px;">
         <div class="field">
           <label>How did you hear about us?</label>
@@ -536,39 +526,19 @@ a { color: inherit; text-decoration: none; }
     btn.textContent = 'Redirecting to secure payment...';
     btn.disabled = true;
 
-    // Collect selected seasons
-    const seasons = [...document.querySelectorAll('.chip.selected')].map(c => c.textContent);
-
-    // Store guest data + UTMs in sessionStorage for confirmation page
+    // Store guest data in sessionStorage for confirmation page
     sessionStorage.setItem('guestData', JSON.stringify({
-      firstName: document.getElementById('firstName').value,
+      firstName: firstName,
       lastName: document.getElementById('lastName').value,
       email: email,
-      occasion: document.getElementById('occasion').value,
       source: document.getElementById('source').value,
-      seasons: seasons,
       notes: document.getElementById('notes').value,
-      confirmNum: 'WG-2026-' + String(Math.floor(Math.random() * 7) + 3).padStart(4, '0'),
       ...window.getStoredUTMs()
     }));
 
-    // Redirect to Stripe — append UTMs to track which source converted
-    // TODO: Replace with live Stripe payment link
-    // window.location.href = window.appendUTMs('https://buy.stripe.com/YOUR_PAYMENT_LINK');
-
-    // For now — redirect to confirmation (remove this in production)
-    setTimeout(() => { window.location.href = 'confirmation.html'; }, 1200);
+    // Redirect to live Stripe payment link with UTMs passed through
+    window.location.href = window.appendUTMs('https://buy.stripe.com/5kQbIU6Dg2Tu8Br9j200001');
   }
-
-  // Card number formatting
-  document.addEventListener('DOMContentLoaded', () => {
-    const cardInput = document.querySelector('input[placeholder="1234 5678 9012 3456"]');
-    if (cardInput) {
-      cardInput.addEventListener('input', (e) => {
-        let val = e.target.value.replace(/\D/g, '').substring(0, 16);
-        e.target.value = val.replace(/(.{4})/g, '$1 ').trim();
-      });
-    }
-    const expInput = document.querySelector('input[placeholder="MM / YY"]');
-    if (expInput) {
-      expInput.addEventListener('input', (e
+</script>
+</body>
+</html>
