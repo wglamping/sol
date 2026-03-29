@@ -6,11 +6,6 @@
   <title>Founding Guest Offer — Peregrino Sol · Wander Glamping</title>
   <meta name="description" content="Become a founding guest at Peregrino Sol. Lock in your rate, your access, and your welcome experience for just $50.">
   <style id="shared-css">
-/* ============================================
-   PEREGRINO SOL — WANDER GLAMPING
-   Shared styles · sol.gowanderglamping.com
-   ============================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -41,14 +36,11 @@ body {
   font-weight: 300;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* Bottom padding so floating bar doesn't cover content */
+  padding-bottom: 100px;
 }
 
-/* ---- TYPOGRAPHY ---- */
-h1, h2, h3, h4 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  line-height: 1.1;
-}
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1; }
 em { font-style: italic; color: var(--accent); }
 a { color: inherit; text-decoration: none; }
 
@@ -62,17 +54,9 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-.nav-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px; font-weight: 300; color: var(--cream);
-  letter-spacing: 0.05em;
-}
+.nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--cream); letter-spacing: 0.05em; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
-.nav-link {
-  font-size: 11px; font-weight: 400; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--text-dim);
-  transition: color 0.2s;
-}
+.nav-link { font-size: 11px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); transition: color 0.2s; }
 .nav-link:hover { color: var(--accent); }
 .nav-cta {
   font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
@@ -82,44 +66,44 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-cta:hover { background: var(--accent-light); }
 
-/* ---- BUTTONS ---- */
-.btn-primary {
-  display: inline-block;
+/* ---- FLOATING CTA BAR ---- */
+.floating-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(20,18,12,0.97);
+  border-top: 1px solid var(--border-strong);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.floating-bar.visible { transform: translateY(0); }
+.floating-bar-left { display: flex; flex-direction: column; gap: 2px; }
+.floating-bar-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; color: var(--cream); }
+.floating-bar-sub { font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; }
+.floating-bar-right { display: flex; align-items: center; gap: 20px; }
+.floating-refund { font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em; white-space: nowrap; }
+.floating-btn {
+  display: inline-flex; align-items: center; gap: 10px;
   background: var(--accent); color: var(--dark);
   font-family: 'DM Sans', sans-serif; font-size: 12px;
   font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 16px 40px; border: none; cursor: pointer;
-  transition: background 0.2s;
-  text-align: center;
+  padding: 14px 36px; border: none; cursor: pointer;
+  transition: background 0.2s; white-space: nowrap; text-decoration: none;
 }
-.btn-primary:hover { background: var(--accent-light); }
-
-.btn-ghost {
-  display: inline-block;
-  font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--text-dim);
-  border-bottom: 1px solid rgba(196,164,107,0.2);
-  padding-bottom: 2px; transition: color 0.2s;
+.floating-btn:hover { background: var(--accent-light); }
+.floating-btn-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 300;
+  border-left: 1px solid rgba(26,26,20,0.3);
+  padding-left: 10px; margin-left: 2px;
 }
-.btn-ghost:hover { color: var(--cream); }
-
-/* ---- EYEBROW ---- */
-.eyebrow {
-  font-size: 11px; font-weight: 500;
-  letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 20px;
-  display: flex; align-items: center; gap: 16px;
-}
-.eyebrow-line { display: block; width: 32px; height: 1px; background: var(--accent); }
-
-/* ---- SECTION LABEL ---- */
-.section-label {
-  font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
-  text-transform: uppercase; color: var(--accent);
-  margin-bottom: 28px;
-  display: flex; align-items: center; gap: 16px;
-}
-.section-label::after { content: ''; flex: 1; height: 1px; background: rgba(196,164,107,0.15); }
 
 /* ---- PROGRESS BAR ---- */
 .progress-bar {
@@ -129,11 +113,7 @@ a { color: inherit; text-decoration: none; }
   background: rgba(196,164,107,0.03);
 }
 .step { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
-.step-num {
-  width: 24px; height: 24px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 500;
-}
+.step-num { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; }
 .step.done .step-num { background: rgba(196,164,107,0.15); color: var(--accent); border: 1px solid var(--accent); }
 .step.done .step-label { color: var(--text-dim); }
 .step.active .step-num { background: var(--accent); color: var(--dark); border: 1px solid var(--accent); }
@@ -142,100 +122,77 @@ a { color: inherit; text-decoration: none; }
 .step.pending .step-label { color: var(--text-ghost); }
 .step-divider { flex: 1; height: 1px; background: var(--border); margin: 0 16px; max-width: 60px; }
 
-/* ---- LOCK ICON ---- */
-.lock-icon {
-  width: 14px; height: 14px; border: 1.5px solid rgba(196,164,107,0.4);
-  border-radius: 2px; position: relative;
-  display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2px;
-}
-.lock-icon::before {
-  content: ''; position: absolute; top: -5px; left: 50%;
-  transform: translateX(-50%); width: 8px; height: 6px;
-  border: 1.5px solid rgba(196,164,107,0.4); border-bottom: none;
-  border-radius: 4px 4px 0 0;
-}
-.lock-dot { width: 3px; height: 3px; background: rgba(196,164,107,0.4); border-radius: 50%; }
-
 /* ---- FOOTER ---- */
-.site-footer {
-  padding: 32px 48px;
-  border-top: 1px solid var(--border);
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
-}
-.footer-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px; font-weight: 300; color: var(--text-dim);
-}
+.site-footer { padding: 32px 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; color: var(--text-dim); }
 .footer-note { font-size: 11px; color: var(--text-ghost); letter-spacing: 0.03em; }
 
-/* ---- ANIMATIONS ---- */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes scaleIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.3);} }
 .animate-fade-up { animation: fadeUp 0.9s ease both; }
 .animate-fade-up-delay { animation: fadeUp 0.9s ease 0.2s both; }
 .animate-fade-up-delay-2 { animation: fadeUp 0.9s ease 0.4s both; }
 
-/* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
   .nav { padding: 16px 24px; }
   .nav-links { display: none; }
   .site-footer { padding: 24px; }
   .progress-bar { padding: 12px 24px; }
   .step-label { display: none; }
+  .floating-bar { padding: 14px 20px; }
+  .floating-bar-left { display: none; }
+  .floating-refund { display: none; }
+  .floating-btn { flex: 1; justify-content: center; padding: 16px 24px; }
 }
-
 </style>
+
   <style>
     .page-top { padding-top: 81px; }
 
     /* URGENCY BAR */
-    .urgency-bar {
-      background: rgba(196,164,107,0.07);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 48px;
-      display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap;
-    }
+    .urgency-bar { background: rgba(196,164,107,0.07); border-bottom: 1px solid var(--border); padding: 14px 48px; display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
     .urgency-pill { display: flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
-    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.3);} }
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
     .urgency-count { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--accent); }
 
     /* HERO */
-    .page-hero { padding: 72px 48px 56px; max-width: 860px; margin: 0 auto; text-align: center; }
+    .page-hero { padding: 72px 48px 40px; max-width: 860px; margin: 0 auto; text-align: center; }
     .page-hero h1 { font-size: clamp(40px, 6vw, 68px); color: var(--cream); margin-bottom: 20px; }
-    .page-hero p { font-size: 15px; color: var(--text-muted); line-height: 1.8; max-width: 520px; margin: 0 auto; }
+    .page-hero p { font-size: 15px; color: var(--text-muted); line-height: 1.8; max-width: 520px; margin: 0 auto 36px; }
+
+    /* HERO CTA BLOCK — prominent inline CTA right below hero copy */
+    .hero-cta-block {
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      margin-bottom: 16px;
+    }
+    .hero-cta-btn {
+      display: inline-flex; align-items: center; gap: 16px;
+      background: var(--accent); color: var(--dark);
+      font-family: 'DM Sans', sans-serif; font-size: 13px;
+      font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 20px 52px; text-decoration: none;
+      transition: background 0.2s; position: relative; overflow: hidden;
+    }
+    .hero-cta-btn:hover { background: var(--accent-light); }
+    .hero-cta-btn-price {
+      font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300;
+      border-left: 1px solid rgba(26,26,20,0.25); padding-left: 16px; margin-left: 4px;
+    }
+    .hero-cta-note { font-size: 12px; color: var(--text-dim); letter-spacing: 0.06em; display: flex; align-items: center; gap: 16px; }
+    .hero-cta-note span { display: flex; align-items: center; gap: 6px; }
+    .hero-cta-note span::before { content: '✓'; color: rgba(196,164,107,0.5); font-size: 11px; }
 
     /* OFFER CARD */
     .offer-wrap { padding: 0 32px 80px; max-width: 860px; margin: 0 auto; }
     .offer-card { border: 1px solid var(--border-strong); position: relative; overflow: hidden; }
-    .founding-ribbon {
-      display: inline-block;
-      background: var(--accent); color: var(--dark);
-      font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
-      padding: 6px 16px;
-      margin-bottom: 24px;
-    }
+    .founding-ribbon { display: inline-block; background: var(--accent); color: var(--dark); font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 16px; margin-bottom: 24px; }
 
     /* OFFER TOP */
     .offer-top { padding: 52px 52px 44px; border-bottom: 1px solid var(--border); display: flex; gap: 52px; flex-wrap: wrap; align-items: flex-start; }
     .price-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
     .price-amount { font-family: 'Cormorant Garamond', serif; font-size: 96px; font-weight: 300; line-height: 1; color: var(--accent); }
     .price-sub { font-size: 12px; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.05em; }
-    .price-refund {
-      display: inline-flex; align-items: center; gap: 8px;
-      margin-top: 16px; font-size: 12px; color: var(--text-muted);
-      border: 1px solid var(--border); padding: 8px 16px;
-    }
+    .price-refund { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; color: var(--text-muted); border: 1px solid var(--border); padding: 8px 16px; }
     .price-refund::before { content: '✓'; color: var(--accent); font-size: 11px; }
     .offer-desc { flex: 1; min-width: 240px; padding-top: 8px; }
     .offer-desc h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; color: var(--cream); margin-bottom: 18px; line-height: 1.2; }
@@ -268,12 +225,43 @@ a { color: inherit; text-decoration: none; }
     .spots-fill { height: 100%; background: var(--accent); width: 30%; }
     .spots-text { font-size: 13px; color: var(--accent); font-weight: 400; white-space: nowrap; }
 
-    /* CTA */
+    /* BOTTOM CTA — full-width prominent block before FAQ */
+    .bottom-cta-block {
+      margin: 0 32px 0;
+      max-width: 860px;
+      margin-left: auto; margin-right: auto;
+      padding: 48px 52px;
+      background: rgba(196,164,107,0.05);
+      border: 1px solid var(--border-strong);
+      border-top: 3px solid var(--accent);
+      display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+      margin-bottom: 0;
+    }
+    .bottom-cta-left h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); margin-bottom: 8px; }
+    .bottom-cta-left p { font-size: 13px; color: var(--text-dim); line-height: 1.75; max-width: 360px; }
+    .bottom-cta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+    .bottom-cta-btn {
+      display: inline-flex; align-items: center; gap: 16px;
+      background: var(--accent); color: var(--dark);
+      font-family: 'DM Sans', sans-serif; font-size: 12px;
+      font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 18px 44px; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .bottom-cta-btn:hover { background: var(--accent-light); }
+    .bottom-cta-btn-price { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; border-left: 1px solid rgba(26,26,20,0.25); padding-left: 14px; }
+    .bottom-cta-trust { display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+    .bottom-cta-trust span { font-size: 11px; color: var(--text-ghost); display: flex; align-items: center; gap: 5px; }
+    .bottom-cta-trust span::before { content: '✓'; color: rgba(196,164,107,0.4); }
+
+    /* CTA (old — keep for offer card bottom) */
     .offer-cta { padding: 44px 52px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px; }
     .cta-left p { font-size: 13px; color: var(--text-dim); line-height: 1.75; max-width: 340px; }
     .trust-row { display: flex; align-items: center; gap: 20px; margin-top: 12px; flex-wrap: wrap; }
     .trust-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-ghost); letter-spacing: 0.05em; }
     .trust-item::before { content: '✓'; color: rgba(196,164,107,0.4); font-size: 10px; }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; display: flex; align-items: center; gap: 16px; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(196,164,107,0.15); }
 
     /* FAQ */
     .faq-section { padding: 64px 32px; max-width: 860px; margin: 0 auto; }
@@ -284,6 +272,9 @@ a { color: inherit; text-decoration: none; }
     .faq-item.open .faq-a { max-height: 160px; padding-top: 14px; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
 
+    .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 16px; }
+    .eyebrow-line { display: block; width: 32px; height: 1px; background: var(--accent); }
+
     @media (max-width: 768px) {
       .offer-top { padding: 32px; flex-direction: column; gap: 32px; }
       .offer-benefits { padding: 32px; }
@@ -291,8 +282,13 @@ a { color: inherit; text-decoration: none; }
       .offer-proof { padding: 32px; }
       .offer-cta { padding: 32px; flex-direction: column; }
       .urgency-bar { padding: 12px 24px; gap: 16px; }
-      .page-hero { padding: 48px 24px 40px; }
+      .page-hero { padding: 48px 24px 32px; }
       .offer-wrap { padding: 0 16px 48px; }
+      .hero-cta-btn { padding: 18px 32px; width: 100%; justify-content: center; }
+      .bottom-cta-block { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+      .bottom-cta-right { align-items: stretch; width: 100%; }
+      .bottom-cta-btn { justify-content: center; }
+      .bottom-cta-trust { justify-content: flex-start; }
     }
     @media (max-width: 500px) {
       .benefits-grid { grid-template-columns: 1fr; }
@@ -315,26 +311,16 @@ a { color: inherit; text-decoration: none; }
   <!-- UTM Capture & Passthrough -->
   <script>
   (function() {
-    // Capture UTMs from URL and store in sessionStorage
     var params = new URLSearchParams(window.location.search);
     var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
     utmKeys.forEach(function(key) {
-      if (params.get(key)) {
-        sessionStorage.setItem(key, params.get(key));
-      }
+      if (params.get(key)) sessionStorage.setItem(key, params.get(key));
     });
-
-    // Helper: get stored UTMs as object
     window.getStoredUTMs = function() {
       var utms = {};
-      utmKeys.forEach(function(key) {
-        var val = sessionStorage.getItem(key);
-        if (val) utms[key] = val;
-      });
+      utmKeys.forEach(function(key) { var val = sessionStorage.getItem(key); if (val) utms[key] = val; });
       return utms;
     };
-
-    // Helper: append UTMs to any URL
     window.appendUTMs = function(url) {
       var utms = window.getStoredUTMs();
       if (Object.keys(utms).length === 0) return url;
@@ -346,17 +332,30 @@ a { color: inherit; text-decoration: none; }
   </script>
 </head>
 <body>
-<!-- GTM noscript -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KP3CB263" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <script>
-  fbq('track', 'ViewContent', {
-    content_name: 'Peregrino Sol Founding Guest Offer',
-    content_category: 'Glamping',
-    currency: 'USD',
-    value: 50
-  });
-  </script>
+<script>
+fbq('track', 'ViewContent', {
+  content_name: 'Peregrino Sol Founding Guest Offer',
+  content_category: 'Glamping',
+  currency: 'USD',
+  value: 50
+});
+</script>
+
+<!-- FLOATING BAR -->
+<div class="floating-bar" id="floatingBar">
+  <div class="floating-bar-left">
+    <div class="floating-bar-title">Peregrino Sol — Founding Guest</div>
+    <div class="floating-bar-sub">Window closes May 1 · Opening July 2026</div>
+  </div>
+  <div class="floating-bar-right">
+    <span class="floating-refund">Fully refundable · no risk</span>
+    <a href="checkout.html" class="floating-btn">
+      Reserve my spot <span class="floating-btn-price">$50</span>
+    </a>
+  </div>
+</div>
 
 <div class="page-top">
 
@@ -372,7 +371,7 @@ a { color: inherit; text-decoration: none; }
 <!-- URGENCY BAR -->
 <div class="urgency-bar">
   <div class="urgency-pill">
-    <div class="pulse"></div>
+    <div class="pulse-dot"></div>
     <span>Founding Guest window open</span>
   </div>
   <div style="display:flex;align-items:baseline;gap:8px;">
@@ -380,6 +379,17 @@ a { color: inherit; text-decoration: none; }
     <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);">window closes</span>
   </div>
   <div class="urgency-pill">Opening July 2026</div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar">
+  <div class="step done"><div class="step-num">✓</div><span class="step-label">Cabin</span></div>
+  <div class="step-divider"></div>
+  <div class="step active"><div class="step-num">2</div><span class="step-label">Founding Guest</span></div>
+  <div class="step-divider"></div>
+  <div class="step pending"><div class="step-num">3</div><span class="step-label">Reserve</span></div>
+  <div class="step-divider"></div>
+  <div class="step pending"><div class="step-num">4</div><span class="step-label">Confirmed</span></div>
 </div>
 
 <!-- PAGE HERO -->
@@ -391,6 +401,18 @@ a { color: inherit; text-decoration: none; }
   </div>
   <h1>One more step to become a<br><em>Founding Guest.</em></h1>
   <p>Your email is saved. Now secure your place in the private booking window with a $50 fully refundable deposit — credited in full to your first stay. The window closes May 1.</p>
+
+  <!-- PROMINENT HERO CTA -->
+  <div class="hero-cta-block animate-fade-up-delay">
+    <a href="checkout.html" class="hero-cta-btn">
+      Reserve my founding spot <span class="hero-cta-btn-price">$50</span>
+    </a>
+    <div class="hero-cta-note">
+      <span>Fully refundable</span>
+      <span>Applied to your first stay</span>
+      <span>Secure via Stripe</span>
+    </div>
+  </div>
 </div>
 
 <!-- OFFER CARD -->
@@ -446,7 +468,7 @@ a { color: inherit; text-decoration: none; }
         <div class="benefit-item">
           <div class="benefit-num">07</div>
           <div class="benefit-title">Early check-in + late checkout</div>
-          <div class="benefit-desc">Arrive at 1pm. Leave at 1pm. Two extra hours on each end. No rushing, no clock-watching — just more time in the cabin.</div>
+          <div class="benefit-desc">Arrive at 1pm. Leave at 1pm. Two extra hours on each end. No rushing, no clock-watching.</div>
         </div>
       </div>
     </div>
@@ -454,18 +476,9 @@ a { color: inherit; text-decoration: none; }
     <div class="offer-proof">
       <div class="section-label" style="margin-bottom:24px;">From our existing property · Wander Glamping Bali Dome</div>
       <div class="proof-row">
-        <div class="proof-stat">
-          <div class="proof-val">4.96</div>
-          <div class="proof-key">Airbnb rating</div>
-        </div>
-        <div class="proof-stat">
-          <div class="proof-val">★</div>
-          <div class="proof-key">Superhost</div>
-        </div>
-        <div class="proof-stat">
-          <div class="proof-val">1M+</div>
-          <div class="proof-key">TikTok views</div>
-        </div>
+        <div class="proof-stat"><div class="proof-val">4.96</div><div class="proof-key">Airbnb rating</div></div>
+        <div class="proof-stat"><div class="proof-val">★</div><div class="proof-key">Superhost</div></div>
+        <div class="proof-stat"><div class="proof-val">1M+</div><div class="proof-key">TikTok views</div></div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
           <div class="review-text">"Absolutely one of a kind. The attention to detail, the setting, the experience — nothing like it in Texas."</div>
@@ -489,21 +502,40 @@ a { color: inherit; text-decoration: none; }
           <div class="trust-item">No hidden fees</div>
         </div>
       </div>
-      <a href="checkout.html" class="btn-primary" style="padding:18px 52px;font-size:13px;">Reserve my spot — $50</a>
+      <a href="checkout.html" class="hero-cta-btn" style="padding:18px 44px;">
+        Reserve my spot <span class="hero-cta-btn-price" style="font-size:26px;">$50</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA BLOCK -->
+  <div class="bottom-cta-block">
+    <div class="bottom-cta-left">
+      <h3>Ready to lock in your spot?</h3>
+      <p>25 founding guest spots. $50 fully refundable deposit. Private 48-hour booking window on May 1 — before a single date goes public.</p>
+    </div>
+    <div class="bottom-cta-right">
+      <a href="checkout.html" class="bottom-cta-btn">
+        Reserve my founding spot <span class="bottom-cta-btn-price">$50</span>
+      </a>
+      <div class="bottom-cta-trust">
+        <span>Fully refundable</span>
+        <span>Secure via Stripe</span>
+        <span>Applied to first stay</span>
+      </div>
     </div>
   </div>
 
   <!-- FAQ -->
   <div class="faq-section">
     <div class="section-label">Common questions</div>
-
     <div class="faq-item" onclick="this.classList.toggle('open')">
       <div class="faq-q">What happens to my $50 after I pay? <span class="faq-icon">+</span></div>
       <div class="faq-a">Your $50 is held as a credit and applied in full toward your first stay at Peregrino Sol. When you book, it comes straight off your balance — no hoops to jump through.</div>
     </div>
     <div class="faq-item" onclick="this.classList.toggle('open')">
       <div class="faq-q">Is this really refundable? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Yes, fully. If you change your mind for any reason before booking your stay, we'll refund your $50 with no questions asked. We want you here because you genuinely want to be here.</div>
+      <div class="faq-a">Yes, fully. If you change your mind for any reason before booking your stay, we'll refund your $50 with no questions asked.</div>
     </div>
     <div class="faq-item" onclick="this.classList.toggle('open')">
       <div class="faq-q">When does Peregrino Sol open? <span class="faq-icon">+</span></div>
@@ -519,14 +551,33 @@ a { color: inherit; text-decoration: none; }
     </div>
     <div class="faq-item" onclick="this.classList.toggle('open')">
       <div class="faq-q">Who is Wander Glamping? <span class="faq-icon">+</span></div>
-      <div class="faq-a">We operate unique luxury accommodations in Paris, TX. Our Bali Dome holds Airbnb Superhost status with a 4.96 rating and has been seen by over 1 million people on TikTok. Peregrino Sol is our next property — an award-winning O-Frame cabin featured in Dwell Magazine.</div>
+      <div class="faq-a">We operate unique luxury accommodations in Paris, TX. Our Bali Dome holds Airbnb Superhost status with a 4.96 rating. Peregrino Sol is our next property — an award-winning O-Frame cabin featured in Dwell Magazine.</div>
     </div>
   </div>
 
 </div><!-- /offer-wrap -->
-
 </div><!-- /page-top -->
 
 <footer class="site-footer">
   <span class="footer-brand">Wander Glamping</span>
-  <span class="footer-note">sol.gowanderglamping.com · Paris, TX · info@gowanderglamping.com
+  <span class="footer-note">sol.gowanderglamping.com · Paris, TX · info@gowanderglamping.com</span>
+</footer>
+
+<script>
+  // Floating bar appears after scrolling past hero
+  const floatingBar = document.getElementById('floatingBar');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      floatingBar.classList.add('visible');
+    } else {
+      floatingBar.classList.remove('visible');
+    }
+  });
+
+  // FAQ
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => item.classList.toggle('open'));
+  });
+</script>
+</body>
+</html>
