@@ -314,7 +314,7 @@ a { color: inherit; text-decoration: none; }
           <a class="share-btn" href="https://wa.me/?text=Just%20reserved%20my%20spot%20at%20Peregrino%20Sol%20%E2%80%94%20the%20first%20O-Frame%20cabin%20in%20America.%2090%20min%20from%20Dallas%2C%20opening%20July%202026%3A%20sol.gowanderglamping.com" target="_blank" title="Share on WhatsApp">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </a>
-          <a class="share-btn" href="/cdn-cgi/l/email-protection#8cb3fff9eee6e9eff8b1d5e3f9a9bebce2e9e9e8a9bebcf8e3a9bebcffe9e9a9bebcf8e4e5ffa9bebcefedeee5e2aaeee3e8f5b1c6f9fff8a9bebcfee9ffe9fefae9e8a9bebce1f5a9bebcfffce3f8a9bebcedf8a9bebcdce9fee9ebfee5e2e3a9bebcdfe3e0a9bebca9c9bea9b4bca9b5b8a9bebcf8e4e9a9bebceae5fefff8a9bebcc3a1cafeede1e9a9bebcefedeee5e2a9bebce5e2a9bebccde1e9fee5efeda2a9bebccae9edf8f9fee9e8a9bebce5e2a9bebcc8fbe9e0e0a9bebcc1edebedf6e5e2e9a9becfa9bebcb5bca9bebce1e5e2a9bebceafee3e1a9bebcc8ede0e0edffa9becfa9bebce3fce9e2e5e2eba9bebcc6f9e0f5a9bebcbebcbebaa9bfcda9bebcffe3e0a2ebe3fbede2e8e9feebe0ede1fce5e2eba2efe3e1" title="Share via email">
+          <a class="share-btn" href="mailto:?subject=You%20need%20to%20see%20this%20cabin&body=Just%20reserved%20my%20spot%20at%20Peregrino%20Sol%20%E2%80%94%20the%20first%20O-Frame%20cabin%20in%20America.%20Featured%20in%20Dwell%20Magazine%2C%2090%20min%20from%20Dallas%2C%20opening%20July%202026%3A%20sol.gowanderglamping.com" title="Share via email">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </a>
           <button class="share-btn" onclick="copyLink()" title="Copy link">
@@ -329,10 +329,10 @@ a { color: inherit; text-decoration: none; }
 
 <footer class="site-footer">
   <span class="footer-brand">Wander Glamping</span>
-  <span class="footer-note">sol.gowanderglamping.com · Paris, TX · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="462f282029062129312728222334212a272b362f28216825292b">[email&#160;protected]</a></span>
+  <span class="footer-note">sol.gowanderglamping.com · Paris, TX · <a href="mailto:info@gowanderglamping.com">info@gowanderglamping.com</a></span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   document.addEventListener('DOMContentLoaded', function() {
 
     // Fire Purchase pixel event — delayed to ensure pixel fully initializes
@@ -353,4 +353,26 @@ a { color: inherit; text-decoration: none; }
         const d = JSON.parse(raw);
         if (d.firstName) {
           const name = [d.firstName, d.lastName].filter(Boolean).join(' ');
-          d
+          const nameEl = document.getElementById('guestName');
+          if (nameEl) nameEl.textContent = name;
+        }
+        if (d.email) {
+          const emailEl = document.getElementById('guestEmail');
+          if (emailEl) emailEl.textContent = d.email;
+        }
+      }
+    } catch(e) {}
+  });
+
+  function copyLink() {
+    navigator.clipboard.writeText('https://sol.gowanderglamping.com').then(function() {
+      const el = document.getElementById('copy-confirm');
+      if (el) {
+        el.style.display = 'block';
+        setTimeout(function() { el.style.display = 'none'; }, 2000);
+      }
+    });
+  }
+</script>
+</body>
+</html>
