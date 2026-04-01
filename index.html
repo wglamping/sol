@@ -379,6 +379,67 @@
     .footer-links a { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,221,208,0.35); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--ember); }
 
+    /* ─── FLOATING CTA BUTTON ───────────────────────────────── */
+    .floating-cta {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: var(--ember);
+      border: none;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease, background 0.2s;
+      opacity: 0;
+      white-space: nowrap;
+    }
+    .floating-cta.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    .floating-cta input {
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 16px 20px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream);
+      letter-spacing: 0.03em;
+      width: 220px;
+      border-right: 1px solid rgba(255,255,255,0.2);
+    }
+    .floating-cta input::placeholder { color: rgba(255,255,255,0.6); }
+    .floating-cta button {
+      background: transparent;
+      border: none;
+      padding: 16px 24px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cream);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .floating-cta:hover { background: var(--terracotta); }
+    .floating-cta-success {
+      display: none;
+      padding: 16px 28px;
+      font-size: 13px;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 480px) {
+      .floating-cta { width: calc(100% - 32px); bottom: 16px; }
+      .floating-cta input { flex: 1; width: auto; }
+    }
+
     /* ─── SPOT COUNTER ───────────────────────────────────────── */
     .spot-counter { display: inline-flex; align-items: center; gap: 10px; background: rgba(196,112,58,0.10); border: 1px solid rgba(196,112,58,0.25); padding: 8px 16px; margin-bottom: 32px; font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--ember); }
     .spot-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ember); animation: pulse 2s ease-in-out infinite; }
@@ -903,6 +964,22 @@
   </div>
 </div>
 
+<!-- ─── FLOATING CTA ─────────────────────────────────────────── -->
+<div class="floating-cta" id="floating-cta">
+  <input
+    type="email"
+    id="floating-email"
+    placeholder="Your email address"
+    autocomplete="email"
+    inputmode="email"
+    aria-label="Email address"
+  >
+  <button type="button" id="floating-btn" onclick="submitEmail('floating-email','floating-success','floating-btn')">
+    Get Early Access
+  </button>
+  <div class="floating-cta-success" id="floating-success">You're in...</div>
+</div>
+
 <!-- ─── FOOTER ─────────────────────────────────────────────── -->
 <footer>
   <span class="footer-brand">Wander Glamping · Paris, Texas</span>
@@ -912,7 +989,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // ─── META PIXEL ──────────────────────────────────────────────
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -927,15 +1004,16 @@
     var input   = document.getElementById(inputId);
     var success = document.getElementById(successId);
     var btn     = document.getElementById(btnId);
-    var email   = input.value.trim();
+    if (!input || !btn) return;
+    var email = input.value.trim();
 
     if (!email || !email.includes('@')) {
-      input.style.borderColor = 'rgba(196,112,58,0.8)';
+      input.style.outline = '2px solid rgba(196,112,58,0.8)';
       input.focus();
       return;
     }
 
-    btn.textContent = 'Sending…';
+    btn.textContent = 'Sending\u2026';
     btn.disabled = true;
 
     try {
@@ -949,14 +1027,21 @@
     }
 
     // Fire Lead pixel event
-    fbq('track', 'Lead');
+    if (typeof fbq !== 'undefined') fbq('track', 'Lead');
 
     // Store email for checkout pre-fill
     sessionStorage.setItem('guestEmail', email);
 
-    // Show success then redirect
-    input.closest('.form-row').style.display = 'none';
-    success.style.display = 'block';
+    // Show success state then redirect
+    if (inputId === 'floating-email') {
+      input.style.display = 'none';
+      btn.style.display = 'none';
+      if (success) success.style.display = 'block';
+    } else {
+      var formRow = input.closest('.form-row');
+      if (formRow) formRow.style.display = 'none';
+      if (success) success.style.display = 'block';
+    }
 
     setTimeout(function() {
       window.location.href = 'vip.html';
@@ -964,15 +1049,32 @@
   }
 
   // Enter key submits whichever form is focused
-  document.querySelectorAll('input[type="email"]').forEach(function(input) {
-    input.addEventListener('keydown', function(e) {
+  document.querySelectorAll('input[type="email"]').forEach(function(inp) {
+    inp.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') {
-        var btnId = input.id.replace('email', 'btn');
-        var successId = input.id.replace('email', 'success');
-        submitEmail(input.id, successId, btnId);
+        var btnId     = inp.id.replace('email', 'btn');
+        var successId = inp.id.replace('email', 'success');
+        submitEmail(inp.id, successId, btnId);
       }
     });
   });
+
+  // ─── FLOATING CTA VISIBILITY ──────────────────────────────────
+  (function() {
+    var floatingCta = document.getElementById('floating-cta');
+    var heroForm    = document.getElementById('hero-form-wrap');
+    function checkScroll() {
+      if (!floatingCta || !heroForm) return;
+      var heroBottom = heroForm.getBoundingClientRect().bottom;
+      if (heroBottom < 0) {
+        floatingCta.classList.add('visible');
+      } else {
+        floatingCta.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
+  })();
 
   // ─── FADE UP ON SCROLL ────────────────────────────────────────
   document.body.classList.add('js-loaded');
@@ -989,22 +1091,31 @@
   // ─── COUNTDOWN TIMER ──────────────────────────────────────────
   (function() {
     var deadline = new Date('2026-05-01T08:00:00-05:00');
-
     function pad(n) { return String(n).padStart(2, '0'); }
-
     function tick() {
-      var diff = deadline - Date.now();
+      var diff = deadline.getTime() - Date.now();
+      var dEl = document.getElementById('cd-days');
+      var hEl = document.getElementById('cd-hours');
+      var mEl = document.getElementById('cd-mins');
+      var sEl = document.getElementById('cd-secs');
+      if (!dEl) return;
       if (diff <= 0) {
-        document.getElementById('cd-days').textContent  = '00';
-        document.getElementById('cd-hours').textContent = '00';
-        document.getElementById('cd-mins').textContent  = '00';
-        document.getElementById('cd-secs').textContent  = '00';
+        dEl.textContent = '00'; hEl.textContent = '00';
+        mEl.textContent = '00'; sEl.textContent = '00';
         return;
       }
       var d = Math.floor(diff / 86400000);
       var h = Math.floor((diff % 86400000) / 3600000);
       var m = Math.floor((diff % 3600000) / 60000);
       var s = Math.floor((diff % 60000) / 1000);
-      document.getElementById('cd-days').textContent  = pad(d);
-      document.getElementById('cd-hours').textContent = pad(h);
-      document.getElementById('cd-mins').textContent  = pad(m);
+      dEl.textContent = pad(d);
+      hEl.textContent = pad(h);
+      mEl.textContent = pad(m);
+      sEl.textContent = pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+</body>
+</html>
