@@ -499,7 +499,7 @@ a { color: inherit; text-decoration: none; }
 
 <footer class="site-footer">
   <span class="footer-brand">Wander Glamping</span>
-  <span class="footer-note">sol.gowanderglamping.com · Paris, TX · info@gowanderglamping.com</span>
+  <span class="footer-note">sol.gowanderglamping.com · Paris, TX · <a href="mailto:info@gowanderglamping.com">info@gowanderglamping.com</a></span>
 </footer>
 
 <script>
@@ -514,9 +514,14 @@ a { color: inherit; text-decoration: none; }
 
   function toggleChip(el) { el.classList.toggle('selected'); }
 
-  function handleSubmit() {
-    const email = document.getElementById('email').value;
-    const firstName = document.getElementById('firstName').value;
+  async function handleSubmit() {
+    const email     = document.getElementById('email').value.trim();
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName  = document.getElementById('lastName').value.trim();
+    const phone     = document.getElementById('phone') ? document.getElementById('phone').value.trim() : '';
+    const source    = document.getElementById('source') ? document.getElementById('source').value : '';
+    const notes     = document.getElementById('notes') ? document.getElementById('notes').value.trim() : '';
+
     if (!email || !firstName) {
       alert('Please fill in your name and email address to continue.');
       return;
@@ -526,18 +531,36 @@ a { color: inherit; text-decoration: none; }
     btn.textContent = 'Redirecting to secure payment...';
     btn.disabled = true;
 
-    // Store guest data in sessionStorage for confirmation page
+    // Save guest data to backend before Stripe redirect
+    try {
+      await fetch('/api/save-guest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          phone,
+          source,
+          notes,
+          ...window.getStoredUTMs()
+        })
+      });
+    } catch(err) {
+      // continue regardless — still redirect to Stripe
+    }
+
+    // Also store in sessionStorage as fallback
     sessionStorage.setItem('guestData', JSON.stringify({
-      firstName: firstName,
-      lastName: document.getElementById('lastName').value,
-      email: email,
-      source: document.getElementById('source').value,
-      notes: document.getElementById('notes').value,
+      firstName, lastName, email, source, notes,
       ...window.getStoredUTMs()
     }));
+    sessionStorage.setItem('guestEmail', email);
 
-    // Redirect to live Stripe payment link with UTMs passed through
-    window.location.href = window.appendUTMs('https://buy.stripe.com/5kQbIU6Dg2Tu8Br9j200001');
+    // Redirect to Stripe with email pre-populated
+    const stripeUrl = 'https://buy.stripe.com/5kQbIU6Dg2Tu8Br9j200001';
+    const finalUrl  = window.appendUTMs(stripeUrl + '?prefilled_email=' + encodeURIComponent(email));
+    window.location.href = finalUrl;
   }
 </script>
 </body>
