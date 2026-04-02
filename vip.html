@@ -268,8 +268,8 @@ a { color: inherit; text-decoration: none; }
     .faq-item { border-bottom: 1px solid rgba(196,164,107,0.1); padding: 22px 0; cursor: pointer; }
     .faq-q { font-size: 15px; font-weight: 400; color: var(--cream); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
     .faq-icon { color: var(--accent); font-size: 20px; flex-shrink: 0; transition: transform 0.25s; line-height: 1; }
-    .faq-a { font-size: 13px; color: var(--text-muted); line-height: 1.8; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s; }
-    .faq-item.open .faq-a { max-height: 160px; padding-top: 14px; }
+    .faq-a { font-size: 13px; color: var(--text-muted); line-height: 1.8; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s; }
+    .faq-item.open .faq-a { max-height: 400px; padding-top: 14px; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
 
     .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 16px; }
@@ -560,18 +560,29 @@ fbq('track', 'ViewContent', {
 
 <footer class="site-footer">
   <span class="footer-brand">Wander Glamping</span>
-  <span class="footer-note">sol.gowanderglamping.com · Paris, TX · <a href="mailto:info@gowanderglamping.com">info@gowanderglamping.com</a></span>
+  <span class="footer-note">sol.gowanderglamping.com · Paris, TX · <a href="/cdn-cgi/l/email-protection#e68f888089a68189918788828394818a878b968f8881c885898b"><span class="__cf_email__" data-cfemail="bed7d0d8d1fed9d1c9dfd0dadbccd9d2dfd3ced7d0d990ddd1d3">[email&#160;protected]</span></a></span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Floating bar appears after scrolling past hero
   const floatingBar = document.getElementById('floatingBar');
   window.addEventListener('scroll', function() {
     if (window.scrollY > 400) {
-      floatingBar.classList.add('visible');
-    } else {
+      floatingBar.classList.add('visible');    } else {
       floatingBar.classList.remove('visible');
     }
+  });
+
+  // Fire InitiateCheckout on any Reserve button click
+  document.querySelectorAll('a[href="checkout.html"]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      fbq('track', 'InitiateCheckout', {
+        content_name: 'Peregrino Sol Founding Guest Deposit',
+        currency: 'USD',
+        value: 50,
+        num_items: 1
+      });
+    });
   });
 
   // FAQ toggles
