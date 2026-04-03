@@ -21,10 +21,13 @@ export default async function handler(req, res) {
   }
 
   const MAILERLITE_API_KEY = process.env.MAILERLITE_API_KEY;
+  const SHEETS_WEBHOOK_URL = process.env.SHEETS_WEBHOOK_URL;
 
-  try {
-    // Update subscriber with full guest data fields
-    const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+  // Run MailerLite and Google Sheets writes in parallel
+  await Promise.allSettled([
+
+    // ── MAILERLITE ────────────────────────────────────────────────────────────
+    fetch('https://connect.mailerlite.com/api/subscribers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,11 +36,10 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         email,
         fields: {
-          name:        firstName || '',
-          last_name:   lastName  || '',
-          phone:       phone     || '',
-          // Custom fields — create these in MailerLite if not already present
-          ...(source       && { how_heard:    source }),
+          name:      firstName || '',
+          last_name: lastName  || '',
+          phone:     phone     || '',
+          ...(source       && { how_heard:     source }),
           ...(notes        && { special_notes: notes }),
           ...(utm_source   && { utm_source }),
           ...(utm_medium   && { utm_medium }),
@@ -45,19 +47,29 @@ export default async function handler(req, res) {
           ...(utm_content  && { utm_content }),
         }
       }),
-    });
+    }).then(r => r.json()).catch(err => console.error('MailerLite error:', err)),
 
-    const data = await response.json();
+    // ── GOOGLE SHEETS ─────────────────────────────────────────────────────────
+    SHEETS_WEBHOOK_URL ? fetch(SHEETS_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        timestamp:    new Date().toISOString(),
+        firstName:    firstName    || '',
+        lastName:     lastName     || '',
+        email:        email        || '',
+        phone:        phone        || '',
+        how_heard:    source       || '',
+        notes:        notes        || '',
+        utm_source:   utm_source   || '',
+        utm_medium:   utm_medium   || '',
+        utm_campaign: utm_campaign || '',
+        utm_content:  utm_content  || '',
+      }),
+    }).catch(err => console.error('Sheets error:', err)) : Promise.resolve(),
 
-    if (!response.ok) {
-      console.error('MailerLite save-guest error:', data);
-    }
+  ]);
 
-    // Always return 200 — don't block the Stripe redirect
-    return res.status(200).json({ ok: true });
-
-  } catch (err) {
-    console.error('save-guest error:', err);
-    return res.status(200).json({ ok: true });
-  }
+  // Always return 200 — never block the Stripe redirect
+  return res.status(200).json({ ok: true });
 }
