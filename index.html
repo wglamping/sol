@@ -7,7 +7,7 @@
   <meta name="description" content="Celebrate an anniversary, birthday or weekend away at Cabin SOL, an award-winning private O-Frame for two near Dallas with a cedar hot tub, sauna and 15 secluded acres." />
   <meta property="og:title" content="Cabin SOL | A Private Couples Retreat Near Dallas" />
   <meta property="og:description" content="A private architectural escape for anniversaries, birthdays and weekends away, 90 minutes from Dallas." />
-  <meta property="og:image" content="https://sol.gowanderglamping.com/images/sol/og-cover.webp" />
+  <meta property="og:image" content="https://sol.gowanderglamping.com/images/sol/IMG_8973-Edit-Edit.jpg" />
   <meta name="theme-color" content="#17140f" />
 
   <!-- Google Tag Manager -->
@@ -38,7 +38,7 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.55}
-    img{display:block;width:100%;height:100%;object-fit:cover}
+    img{display:block;width:100%;height:100%;object-fit:cover} picture{display:block;width:100%;height:100%}
     a{color:inherit}
     button,input,select{font:inherit}
     .container{width:min(var(--max),calc(100% - 40px));margin:auto}
@@ -67,7 +67,7 @@
     .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:white;overflow:hidden}
     .hero::before{content:"";position:absolute;inset:0;background:
       linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.06) 35%,rgba(0,0,0,.62) 100%),
-      url("/images/sol/hero-exterior.webp") center 62%/cover no-repeat;
+      url("/images/sol/IMG_8973-Edit-Edit.jpg") center 62%/cover no-repeat;
       transform:scale(1.015)
     }
     .hero-content{position:relative;z-index:2;padding:145px 0 54px;display:grid;grid-template-columns:minmax(0,1fr) minmax(390px,470px);gap:42px;align-items:start}
@@ -134,7 +134,7 @@
     .story{position:relative;min-height:72vh;display:flex;align-items:center;color:white}
     .story::before{content:"";position:absolute;inset:0;background:
       linear-gradient(90deg,rgba(15,12,8,.78),rgba(15,12,8,.15)),
-      url("/images/sol/setting-wide.webp") center/cover no-repeat}
+      url("/images/sol/entrance.jpg") center/cover no-repeat}
     .story .container{position:relative;z-index:1}
     .story-copy{max-width:650px}
     .story-copy h2{margin:12px 0 22px}
@@ -206,6 +206,16 @@
       .occasion-copy{padding:45px}
     }
     @media(max-width:600px){
+      .story::before{
+        background:
+          linear-gradient(90deg,rgba(15,12,8,.80),rgba(15,12,8,.20)),
+          url("/images/sol/shower.jpg") center/cover no-repeat;
+      }
+      .hero::before{
+        background:
+          linear-gradient(180deg,rgba(0,0,0,.52) 0%,rgba(0,0,0,.10) 36%,rgba(0,0,0,.68) 100%),
+          url("/images/sol/deckvertical.jpg") center 52%/cover no-repeat;
+      }
       #booking-iframe{height:780px !important;}
       .container{width:min(100% - 26px,var(--max))}
       section{padding:72px 0}
@@ -332,14 +342,28 @@
       </div>
     </section>
 
+    
     <section id="gallery" class="gallery">
       <div class="container gallery-grid">
-        <figure><img loading="lazy" src="/images/sol/interior-porthole.webp" alt="Warm wood interior and circular window at Cabin SOL"></figure>
-        <figure><img loading="lazy" src="/images/sol/kitchen-bedroom.webp" alt="Cabin SOL kitchen and sleeping space"></figure>
-        <figure><img loading="lazy" src="/images/sol/outdoor-amenities.webp" alt="Private outdoor amenities at Cabin SOL"></figure>
-        <figure><img loading="lazy" src="/images/sol/exterior-pines.webp" alt="Cabin SOL exterior among pine trees"></figure>
+        <figure><picture>
+          
+          <img loading="lazy" src="/images/sol/bed.jpg" alt="Queen bed and circular window inside Cabin SOL">
+        </picture></figure>
+        <figure><picture>
+          
+          <img loading="lazy" src="/images/sol/Interior%20kitchen%20and%20bed.jpg" alt="Integrated kitchen and sleeping space at Cabin SOL">
+        </picture></figure>
+        <figure><picture>
+          <source media="(max-width: 600px)" srcset="/images/sol/deckchair.jpg">
+          <img loading="lazy" src="/images/sol/hottub.jpg" alt="Private cedar hot tub and deck seating at Cabin SOL">
+        </picture></figure>
+        <figure><picture>
+          <source media="(max-width: 600px)" srcset="/images/sol/deckvertical.jpg">
+          <img loading="lazy" src="/images/sol/deckwide.jpg" alt="Cabin SOL exterior and private deck among the pines">
+        </picture></figure>
       </div>
     </section>
+
 
     <section class="recognition">
       <div class="container recognition-grid">
@@ -354,7 +378,10 @@
           </div>
         </div>
         <div class="recognition-image">
-          <img loading="lazy" src="/images/sol/architecture.webp" alt="Award-winning exterior architecture of Cabin SOL">
+          <picture>
+          <source media="(max-width: 600px)" srcset="/images/sol/deckvertical.jpg">
+          <img loading="lazy" src="/images/sol/superwide.jpg" alt="Cabin SOL architecture glowing among pine trees">
+        </picture>
         </div>
       </div>
     </section>
@@ -379,7 +406,12 @@
 
     <section class="occasion">
       <div class="container occasion-grid">
-        <div class="occasion-image"><img loading="lazy" src="/images/sol/evening-romance.webp" alt="Romantic evening at Cabin SOL"></div>
+        <div class="occasion-image">
+          <picture>
+          <source media="(max-width: 600px)" srcset="/images/sol/diningvertical.jpg">
+          <img loading="lazy" src="/images/sol/dininghorizi.jpg" alt="Dining setup for a romantic stay at Cabin SOL">
+        </picture>
+        </div>
         <div class="occasion-copy">
           <div class="eyebrow">For anniversaries and the moments worth remembering</div>
           <h2>Make the occasion feel like one.</h2>
