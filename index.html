@@ -134,11 +134,22 @@
     .review-meta{font-size:.8rem;color:rgba(23,19,15,.55)}
 
     .anniversary-story{background:white}
-    .anniversary-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+    .anniversary-wrap{max-width:980px;margin:auto;text-align:center}
     .anniversary-copy h2{margin:12px 0 22px}
-    .anniversary-copy .pullquote{font-family:var(--serif);font-size:clamp(1.55rem,2.8vw,2.45rem);line-height:1.25;margin:30px 0}
-    .anniversary-images{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .anniversary-images figure{margin:0;overflow:hidden;border-radius:14px;min-height:520px;background:#eee}
+    .anniversary-quote{
+      font-family:var(--serif);
+      font-size:clamp(2rem,4vw,4.2rem);
+      line-height:1.12;
+      letter-spacing:-.035em;
+      margin:34px auto 24px;
+      max-width:900px;
+    }
+    .anniversary-meta{font-size:.82rem;color:rgba(23,19,15,.58);margin-bottom:28px}
+    .anniversary-note{max-width:760px;margin:0 auto;color:var(--muted);font-size:1.02rem}
+    .anniversary-mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:38px;text-align:left}
+    .anniversary-mini{border-top:1px solid var(--line);padding-top:22px}
+    .anniversary-mini p{font-family:var(--serif);font-size:1.35rem;line-height:1.35}
+    .anniversary-mini span{display:block;margin-top:12px;font-size:.78rem;color:rgba(23,19,15,.52)}
 
     .host-proof{background:var(--cream)}
     .host-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
@@ -187,7 +198,7 @@
 
     @media(max-width:900px){
       nav .nav-links a:not(.btn){display:none}
-      .intro-grid,.architecture-grid,.anniversary-grid,.host-grid,.faq-grid{grid-template-columns:1fr}
+      .intro-grid,.architecture-grid,.host-grid,.faq-grid{grid-template-columns:1fr}
       .visual-grid{grid-template-columns:1fr}
       .visual-large{height:560px}
       .visual-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto}
@@ -235,8 +246,8 @@
       }
       .occasion{align-items:flex-end}
       .occasion .container{padding-bottom:52px}
-      .anniversary-images{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
-      .anniversary-images figure{min-width:88vw;height:560px;scroll-snap-align:center}
+      .anniversary-mini-grid{grid-template-columns:1fr}
+      .anniversary-quote{font-size:clamp(2.2rem,10vw,3.4rem)}
       .booking-drawer{width:100%;height:100dvh}
       .booking-head{padding:calc(14px + env(safe-area-inset-top)) 18px 14px}
       .mobile-bar{display:block}
@@ -437,16 +448,22 @@
     </section>
 
     <section class="anniversary-story">
-      <div class="container anniversary-grid">
-        <div class="anniversary-copy">
-          <div class="eyebrow">A 36th anniversary at Cabin SOL</div>
-          <h2>They came for a stay. They left part of themselves behind.</h2>
-          <p class="pullquote">“These kinds of moments, these kinds of memories, sustain us.”</p>
-          <p class="muted">Richard and Teresa celebrated their 36th wedding anniversary at Cabin SOL. Their handwritten note said the experience could have been simpler, but instead every detail elevated the stay. They were so moved by the cabin that they painted original watercolors for us. The artwork is being framed and featured inside Cabin SOL.</p>
-        </div>
-        <div class="anniversary-images">
-          <figure><img loading="lazy" src="/images/sol/review-note-1.png" alt="Handwritten guestbook note from Cabin SOL anniversary guests"></figure>
-          <figure><img loading="lazy" src="/images/sol/review-note-2.png" alt="Second page of handwritten guestbook note from Cabin SOL anniversary guests"></figure>
+      <div class="container anniversary-wrap">
+        <div class="eyebrow">A 36th anniversary at Cabin SOL</div>
+        <h2>A stay worth remembering.</h2>
+        <p class="anniversary-quote">“You could have done less... but instead, you did more to elevate this stay.”</p>
+        <div class="anniversary-meta">Richard & Teresa · Celebrated their 36th wedding anniversary at Cabin SOL</div>
+        <p class="anniversary-note">They were so moved by the experience that they later created original watercolor paintings of Cabin SOL. The artwork is now displayed inside the cabin.</p>
+
+        <div class="anniversary-mini-grid">
+          <div class="anniversary-mini">
+            <p>“These kinds of moments, these kinds of memories, sustain us.”</p>
+            <span>From their handwritten guestbook note</span>
+          </div>
+          <div class="anniversary-mini">
+            <p>“The finishes were out of a magazine.”</p>
+            <span>Teresa · 5-star Airbnb review</span>
+          </div>
         </div>
       </div>
     </section>
