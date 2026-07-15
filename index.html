@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cabin SOL | A Private Couples Retreat Near Dallas</title>
-  <meta name="description" content="Celebrate an anniversary, birthday or weekend away at Cabin SOL, an award-winning private O-Frame for two near Dallas with a cedar hot tub, sauna and 15 secluded acres." />
-  <meta property="og:title" content="Cabin SOL | A Private Couples Retreat Near Dallas" />
-  <meta property="og:description" content="A private architectural escape for anniversaries, birthdays and weekends away, 90 minutes from Dallas." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Cabin SOL | A Private Architectural Retreat Near Dallas</title>
+  <meta name="description" content="Celebrate an anniversary or weekend away at Cabin SOL, an award-winning private O-Frame for two near Dallas with a cedar hot tub, sauna, outdoor shower and 15 secluded acres." />
+  <meta property="og:title" content="Cabin SOL | A Private Architectural Retreat Near Dallas" />
+  <meta property="og:description" content="A private architectural escape for anniversaries, celebrations and weekends away, 90 minutes from Dallas." />
   <meta property="og:image" content="https://sol.gowanderglamping.com/images/sol/deckhoriz.jpg" />
-  <meta name="theme-color" content="#17140f" />
+  <meta name="theme-color" content="#17130f" />
 
   <!-- Google Tag Manager -->
   <script>
@@ -17,464 +17,332 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-KP3CB263');
-</script>
-  <!-- End Google Tag Manager -->
+  </script>
 
   <style>
     :root{
-      --ink:#17140f;
-      --paper:#f4f0e9;
-      --cream:#fbf8f2;
-      --cedar:#8a4f2c;
-      --rust:#b86937;
-      --sage:#5e6b58;
-      --line:rgba(23,20,15,.14);
+      --ink:#17130f;
+      --paper:#f3efe8;
+      --cream:#fbf8f3;
+      --cedar:#a45f33;
+      --line:rgba(23,19,15,.14);
+      --muted:rgba(23,19,15,.66);
       --serif: Georgia, "Times New Roman", serif;
       --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --shadow: 0 18px 60px rgba(25,18,10,.16);
-      --max: 1180px;
+      --max:1240px;
+      --shadow:0 24px 70px rgba(23,19,15,.18);
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.55}
-    img{display:block;width:100%;height:100%;object-fit:cover} picture{display:block;width:100%;height:100%}
+    body.no-scroll{overflow:hidden}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    picture{display:block;width:100%;height:100%}
     a{color:inherit}
-    button,input,select{font:inherit}
     .container{width:min(var(--max),calc(100% - 40px));margin:auto}
-    .eyebrow{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:750;color:var(--rust)}
-    h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.06;margin:0}
-    h1{font-size:clamp(3rem,7vw,6.7rem);letter-spacing:-.045em}
-    h2{font-size:clamp(2.2rem,4.7vw,4.5rem);letter-spacing:-.035em}
+    .eyebrow{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--cedar)}
+    h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.03;margin:0}
+    h1{font-size:clamp(3.8rem,7.4vw,7.2rem);letter-spacing:-.048em}
+    h2{font-size:clamp(2.6rem,5vw,5rem);letter-spacing:-.04em}
     h3{font-size:1.55rem}
     p{margin:0}
-    .muted{color:rgba(23,20,15,.68)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:0 24px;border-radius:999px;border:1px solid transparent;text-decoration:none;font-weight:750;cursor:pointer;transition:.2s ease}
+    .muted{color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:54px;padding:0 25px;border-radius:999px;border:1px solid transparent;text-decoration:none;font-weight:800;cursor:pointer;transition:.2s ease}
     .btn-primary{background:var(--ink);color:white}
-    .btn-primary:hover{transform:translateY(-2px);background:#2b251d}
-    .btn-light{background:white;border-color:rgba(255,255,255,.5);color:var(--ink)}
-    .btn-outline{border-color:var(--line);background:transparent}
-    .btn-outline:hover{background:white}
+    .btn-primary:hover{transform:translateY(-2px);background:#2b241d}
+    .btn-light{background:white;color:var(--ink)}
+    .btn-outline{border-color:rgba(255,255,255,.55);color:white;background:rgba(0,0,0,.12)}
+    .topbar{background:var(--ink);color:#fff;text-align:center;padding:9px 16px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 
-    .topbar{background:var(--ink);color:#fff;text-align:center;padding:9px 16px;font-size:.82rem;letter-spacing:.03em}
     nav{position:absolute;top:38px;left:0;right:0;z-index:20;padding:22px 0;color:white}
     nav .inner{display:flex;align-items:center;justify-content:space-between}
-    .brand{text-decoration:none;font-family:var(--serif);font-size:1.45rem;letter-spacing:.03em}
-    .nav-links{display:flex;align-items:center;gap:26px}
-    .nav-links a{text-decoration:none;font-size:.9rem;font-weight:650}
+    .brand{font-family:var(--serif);font-size:1.45rem;text-decoration:none}
+    .nav-links{display:flex;align-items:center;gap:25px}
+    .nav-links a{text-decoration:none;font-weight:700;font-size:.9rem}
     .nav-links .btn{min-height:44px;padding:0 18px}
 
-    .hero{position:relative;min-height:980px;display:flex;align-items:flex-end;color:white;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;background:
-      linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.06) 35%,rgba(0,0,0,.62) 100%),
-      url("/images/sol/deckhoriz.jpg") center 62%/cover no-repeat;
-      transform:scale(1.015)
+    .hero{position:relative;min-height:91vh;display:flex;align-items:flex-end;color:white;overflow:hidden}
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.34) 0%,rgba(0,0,0,.05) 34%,rgba(0,0,0,.72) 100%),
+        url("/images/sol/deckhoriz.jpg") center 58%/cover no-repeat;
+      transform:scale(1.01);
     }
-    .hero-content{position:relative;z-index:2;padding:145px 0 54px;display:grid;grid-template-columns:minmax(0,1fr) minmax(390px,470px);gap:42px;align-items:start}
-    .hero h1{max-width:940px}
-    .hero-sub{max-width:690px;font-size:clamp(1rem,1.7vw,1.25rem);margin-top:24px;color:rgba(255,255,255,.9)}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
-    .hero-booking{background:rgba(251,248,242,.97);color:var(--ink);border:1px solid rgba(255,255,255,.4);border-radius:24px;box-shadow:0 24px 70px rgba(0,0,0,.34);overflow:hidden;backdrop-filter:blur(14px)}
-    .hero-booking-head{padding:22px 24px 14px;border-bottom:1px solid var(--line)}
-    .hero-booking-head h3{font-size:1.55rem}
-    .hero-booking-head p{font-size:.86rem;color:rgba(23,20,15,.66);margin-top:6px}
-    .hero-booking-frame{height:860px;overflow:hidden;background:white}
-    .hero-booking iframe{width:100%;height:860px;border:0;display:block}
-    .hero-booking-foot{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;padding:13px 18px 16px;border-top:1px solid var(--line);font-size:.74rem;color:rgba(23,20,15,.62)}
-    .fact{display:flex;justify-content:space-between;gap:20px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.18)}
-    .fact:last-child{border:0;padding:0}
-    .fact span:first-child{color:rgba(255,255,255,.66);font-size:.82rem}
-    .fact span:last-child{font-weight:750;text-align:right}
+    .hero-content{position:relative;z-index:2;padding:170px 0 68px;max-width:960px}
+    .hero h1{max-width:900px;text-shadow:0 3px 24px rgba(0,0,0,.3)}
+    .hero-sub{max-width:690px;font-size:clamp(1.02rem,1.7vw,1.25rem);margin-top:24px;color:rgba(255,255,255,.93);text-shadow:0 2px 12px rgba(0,0,0,.35)}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .hero-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:.82rem;color:rgba(255,255,255,.78)}
 
-    .trust-strip{background:white;border-bottom:1px solid var(--line)}
-    .trust-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:24px 0}
-    .trust-item{text-align:center;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:750;color:rgba(23,20,15,.74)}
+    .authority{background:white;border-bottom:1px solid var(--line)}
+    .authority-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:24px 0}
+    .authority-item{text-align:center;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:rgba(23,19,15,.72)}
 
-    section{padding:100px 0}
-    .intro-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}
-    .intro-copy{font-family:var(--serif);font-size:clamp(1.55rem,3vw,2.55rem);line-height:1.25}
-    .intro-body{display:grid;gap:24px;font-size:1.05rem}
-    .microproof{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
-    .microproof div{padding:20px;border:1px solid var(--line);border-radius:16px;background:white}
-    .microproof strong{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:500}
-    .microproof span{font-size:.82rem;color:rgba(23,20,15,.63)}
+    section{padding:105px 0}
+    .intro-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:start}
+    .intro-statement{font-family:var(--serif);font-size:clamp(1.75rem,3.2vw,3.1rem);line-height:1.2}
+    .intro-body{display:grid;gap:22px;font-size:1.06rem}
+    .intro-facts{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+    .intro-facts span{padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:white;font-size:.8rem}
 
-    .gallery{padding-top:20px}
-    .gallery-grid{display:grid;grid-template-columns:1.25fr .75fr .75fr;grid-template-rows:310px 310px;gap:10px}
-    .gallery-grid figure{margin:0;overflow:hidden;border-radius:8px;position:relative}
-    .gallery-grid figure:first-child{grid-row:1/3}
-    .gallery-grid figure:nth-child(4){grid-column:2/4}
-    .gallery-grid img{transition:.6s ease}
-    .gallery-grid figure:hover img{transform:scale(1.035)}
+    .visual-story{padding-top:20px}
+    .visual-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+    .visual-large{height:720px;overflow:hidden;border-radius:12px}
+    .visual-stack{display:grid;grid-template-rows:1fr 1fr;gap:14px}
+    .visual-stack figure,.visual-large{margin:0;overflow:hidden;border-radius:12px;position:relative}
+    .visual-stack figure{min-height:350px}
+    .caption{position:absolute;left:22px;bottom:20px;color:white;font-family:var(--serif);font-size:1.55rem;text-shadow:0 2px 12px rgba(0,0,0,.55)}
 
-    .recognition{background:var(--ink);color:white;overflow:hidden}
-    .recognition-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
-    .recognition h2{margin:12px 0 24px}
-    .recognition p{color:rgba(255,255,255,.76);font-size:1.06rem;max-width:630px}
+    .architecture{background:var(--ink);color:white}
+    .architecture-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .architecture-copy h2{margin:12px 0 24px}
+    .architecture-copy p{color:rgba(255,255,255,.76);font-size:1.06rem}
     .press{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
-    .press span{border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:10px 16px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
-    .recognition-image{height:620px;border-radius:240px 240px 20px 20px;overflow:hidden}
+    .press span{border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:10px 15px;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase}
+    .architecture-image{height:650px;overflow:hidden;border-radius:300px 300px 16px 16px}
 
     .experience-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:48px}
     .experience-head p{max-width:470px}
-    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .card{background:white;border:1px solid var(--line);border-radius:20px;padding:28px;min-height:250px;display:flex;flex-direction:column;justify-content:space-between}
-    .card-number{font-family:var(--serif);font-size:3rem;color:rgba(138,79,44,.33)}
-    .card p{color:rgba(23,20,15,.67);margin-top:15px}
+    .experience-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;align-items:stretch}
+    .experience-row.reverse .experience-image{order:2}
+    .experience-image{min-height:540px;border-radius:18px;overflow:hidden}
+    .experience-copy{padding:55px;background:white;border:1px solid var(--line);border-radius:18px;display:flex;flex-direction:column;justify-content:center}
+    .experience-copy h3{font-size:2.2rem;margin:10px 0 15px}
+    .experience-copy p{color:var(--muted);font-size:1.02rem}
 
-    .occasion{background:var(--paper)}
-    .occasion-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
-    .occasion-image{min-height:620px;border-radius:24px;overflow:hidden}
-    .occasion-copy{padding:70px;border-radius:24px;background:white;display:flex;flex-direction:column;justify-content:center}
-    .occasion-copy h2{margin:12px 0 24px}
-    .occasion-copy ul{list-style:none;margin:32px 0;padding:0;display:grid;gap:12px}
-    .occasion-copy li{display:flex;gap:12px}
-    .occasion-copy li::before{content:"✓";font-weight:800;color:var(--rust)}
+    .occasion{position:relative;min-height:76vh;display:flex;align-items:center;color:white}
+    .occasion::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(90deg,rgba(15,12,8,.82),rgba(15,12,8,.18)),
+        url("/images/sol/dininghoriz.jpg") center/cover no-repeat;
+    }
+    .occasion .container{position:relative;z-index:1}
+    .occasion-copy{max-width:650px}
+    .occasion-copy h2{margin:12px 0 22px}
+    .occasion-copy p{font-size:1.1rem;color:rgba(255,255,255,.84)}
 
-    .story{position:relative;min-height:72vh;display:flex;align-items:center;color:white}
-    .story::before{content:"";position:absolute;inset:0;background:
-      linear-gradient(90deg,rgba(15,12,8,.78),rgba(15,12,8,.15)),
-      url("/images/sol/entrance.jpg") center/cover no-repeat}
-    .story .container{position:relative;z-index:1}
-    .story-copy{max-width:650px}
-    .story-copy h2{margin:12px 0 22px}
-    .story-copy p{font-size:1.1rem;color:rgba(255,255,255,.82)}
+    .reviews{background:var(--paper)}
+    .reviews-head{max-width:850px;margin-bottom:45px}
+    .reviews-head h2{margin-top:12px}
+    .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .review-card{background:white;border:1px solid var(--line);border-radius:20px;padding:30px;display:flex;flex-direction:column;min-height:320px}
+    .stars{letter-spacing:.14em;font-size:.9rem}
+    blockquote{font-family:var(--serif);font-size:1.48rem;line-height:1.34;margin:24px 0;flex:1}
+    .review-meta{font-size:.8rem;color:rgba(23,19,15,.55)}
 
+    .anniversary-story{background:white}
+    .anniversary-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+    .anniversary-copy h2{margin:12px 0 22px}
+    .anniversary-copy .pullquote{font-family:var(--serif);font-size:clamp(1.55rem,2.8vw,2.45rem);line-height:1.25;margin:30px 0}
+    .anniversary-images{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .anniversary-images figure{margin:0;overflow:hidden;border-radius:14px;min-height:520px;background:#eee}
 
-    .credibility{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .credibility-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}
-    .credential-stack{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .credential{border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--cream)}
-    .credential strong{display:block;font-family:var(--serif);font-size:2rem;font-weight:500;line-height:1.1}
-    .credential span{display:block;margin-top:8px;font-size:.84rem;color:rgba(23,20,15,.64)}
-    .proof-disclaimer{margin-top:18px;font-size:.78rem;color:rgba(23,20,15,.52)}
-    .reviews-section{background:var(--paper)}
-    .reviews-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:34px}
-    .reviews-head p{max-width:470px}
-    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .review-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;min-height:250px}
-    .review-stars{letter-spacing:.14em;font-size:.86rem}
-    .review-card blockquote{font-family:var(--serif);font-size:1.28rem;line-height:1.35;margin:22px 0;flex:1}
-    .review-meta{font-size:.78rem;color:rgba(23,20,15,.58)}
+    .host-proof{background:var(--cream)}
+    .host-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+    .host-copy h2{margin:12px 0 20px}
+    .credentials{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .credential{background:white;border:1px solid var(--line);border-radius:18px;padding:26px}
+    .credential strong{display:block;font-family:var(--serif);font-size:2rem;font-weight:500}
+    .credential span{display:block;margin-top:8px;font-size:.82rem;color:var(--muted)}
+    .footnote{font-size:.75rem;color:rgba(23,19,15,.5);margin-top:16px}
 
-    .proof{background:white}
-    .proof-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
-    .quote{font-family:var(--serif);font-size:clamp(1.8rem,3.8vw,3.5rem);line-height:1.18}
-    .proof-note{border-left:1px solid var(--line);padding-left:45px;display:flex;flex-direction:column;justify-content:center;gap:16px}
-    .proof-note strong{font-family:var(--serif);font-size:1.6rem;font-weight:500}
-
-    .booking{background:var(--paper)}
-    .booking-head{text-align:center;max-width:790px;margin:0 auto 38px}
-    .booking-head h2{margin:12px 0 18px}
-    .booking-shell{background:white;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:28px;min-height:420px}
-    .widget-placeholder{display:grid;place-items:center;text-align:center;min-height:360px;border:1px dashed rgba(23,20,15,.25);border-radius:18px;padding:35px;background:#fbfaf7}
-    .widget-placeholder code{display:block;margin:16px auto;padding:12px;background:#eee9df;border-radius:8px;max-width:760px;white-space:normal;text-align:left;font-size:.75rem}
-    .booking-trust{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:22px;font-size:.83rem;color:rgba(23,20,15,.7)}
+    .final-cta{position:relative;min-height:62vh;display:flex;align-items:center;text-align:center;color:white}
+    .final-cta::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(rgba(0,0,0,.34),rgba(0,0,0,.58)),
+        url("/images/sol/superwide.jpg") center/cover no-repeat;
+    }
+    .final-cta .container{position:relative;z-index:1}
+    .final-cta h2{max-width:900px;margin:0 auto 24px}
+    .final-cta p{max-width:650px;margin:0 auto 28px;color:rgba(255,255,255,.85)}
 
     .faq-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px}
     details{border-top:1px solid var(--line);padding:22px 0}
     details:last-child{border-bottom:1px solid var(--line)}
-    summary{cursor:pointer;list-style:none;font-weight:750;display:flex;justify-content:space-between;gap:20px}
+    summary{cursor:pointer;list-style:none;font-weight:800;display:flex;justify-content:space-between;gap:20px}
     summary::after{content:"+";font-size:1.35rem;font-weight:400}
     details[open] summary::after{content:"−"}
-    details p{padding-top:14px;color:rgba(23,20,15,.68);max-width:780px}
+    details p{padding-top:14px;color:var(--muted)}
 
-    footer{background:var(--ink);color:white;padding:55px 0 95px}
+    footer{background:var(--ink);color:white;padding:55px 0 90px}
     .footer-grid{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
     footer p{color:rgba(255,255,255,.58);margin-top:10px}
-    footer a{color:white}
 
+    .booking-overlay{position:fixed;inset:0;z-index:1000;background:rgba(12,10,8,.62);opacity:0;pointer-events:none;transition:.25s ease}
+    .booking-overlay.open{opacity:1;pointer-events:auto}
+    .booking-drawer{position:absolute;right:0;top:0;height:100%;width:min(520px,100%);background:white;transform:translateX(100%);transition:.28s ease;display:flex;flex-direction:column;box-shadow:-30px 0 70px rgba(0,0,0,.24)}
+    .booking-overlay.open .booking-drawer{transform:translateX(0)}
+    .booking-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line);background:white}
+    .booking-head strong{font-family:var(--serif);font-size:1.45rem;font-weight:500}
+    .booking-close{width:42px;height:42px;border:1px solid var(--line);border-radius:999px;background:white;font-size:1.4rem;cursor:pointer}
+    .booking-body{flex:1;overflow:hidden;background:white}
+    .booking-body iframe{width:100%;height:100%;border:0}
 
-    .booking-modal{
-      position:fixed;inset:0;z-index:1000;background:rgba(16,13,9,.72);
-      display:none;align-items:flex-end;justify-content:center;padding:0;
-    }
-    .booking-modal.open{display:flex}
-    .booking-modal-panel{
-      width:min(100%,720px);height:100dvh;background:var(--cream);
-      border-radius:20px 20px 0 0;overflow:hidden;box-shadow:0 -20px 60px rgba(0,0,0,.35);
-      display:flex;flex-direction:column;
-    }
-    .booking-modal-head{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:calc(14px + env(safe-area-inset-top)) 18px 14px;border-bottom:1px solid var(--line);background:white;
-    }
-    .booking-modal-head strong{font-family:var(--serif);font-size:1.35rem;font-weight:500}
-    .booking-close{
-      width:42px;height:42px;border:1px solid var(--line);border-radius:999px;
-      background:white;font-size:1.4rem;cursor:pointer;
-    }
-    .booking-modal-body{flex:1;overflow:hidden;background:white}
-    .booking-modal-body iframe{width:100%;height:100%;border:0}
-
-    .mobile-bar{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:50;background:rgba(255,255,255,.94);box-shadow:0 15px 40px rgba(0,0,0,.25);backdrop-filter:blur(14px);border-radius:18px;padding:10px;opacity:0;pointer-events:none;transform:translateY(16px);transition:.22s ease}
-    .mobile-bar.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+    .mobile-bar{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);padding:10px;border-radius:18px;box-shadow:0 18px 45px rgba(0,0,0,.25)}
     .mobile-bar .btn{width:100%}
 
     @media(max-width:900px){
       nav .nav-links a:not(.btn){display:none}
-      .hero{min-height:auto}
-      .hero-content{grid-template-columns:1fr;padding-top:150px}
-      .hero-booking{max-width:620px;width:100%;margin-top:10px}
-      .hero-booking-frame{height:860px}
-      .hero-booking iframe{height:860px}
-      .intro-grid,.recognition-grid,.occasion-grid,.proof-grid,.faq-grid,.credibility-grid{grid-template-columns:1fr}
-      .trust-inner{grid-template-columns:1fr 1fr}
-      .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:340px 220px 220px}
-      .gallery-grid figure:first-child{grid-column:1/3;grid-row:auto}
-      .gallery-grid figure:nth-child(4){grid-column:auto}
-      .cards{grid-template-columns:1fr 1fr}
+      .intro-grid,.architecture-grid,.anniversary-grid,.host-grid,.faq-grid{grid-template-columns:1fr}
+      .visual-grid{grid-template-columns:1fr}
+      .visual-large{height:560px}
+      .visual-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+      .experience-row,.experience-row.reverse{grid-template-columns:1fr}
+      .experience-row.reverse .experience-image{order:0}
       .review-grid{grid-template-columns:1fr}
-      .recognition-image{height:520px}
-      .occasion-copy{padding:45px}
+      .credentials{grid-template-columns:1fr}
+      .authority-inner{grid-template-columns:1fr 1fr}
+      .architecture-image{height:540px}
     }
+
     @media(max-width:600px){
-
-      .hero{
-        min-height:760px;
-        align-items:flex-end;
-      }
-      .hero::before{
-        background:
-          linear-gradient(180deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 28%,rgba(0,0,0,.72) 72%,rgba(0,0,0,.86) 100%),
-          url("/images/sol/deckvertical.jpg") center 42%/cover no-repeat;
-      }
-      .hero-content{
-        display:block;
-        padding:300px 0 34px;
-      }
-      .hero-content > div:first-child{
-        background:linear-gradient(180deg,rgba(15,12,8,.05),rgba(15,12,8,.62));
-        border-radius:22px;
-        padding:22px 18px 18px;
-        backdrop-filter:blur(1px);
-      }
-      .hero h1{
-        font-size:clamp(2.85rem,13vw,4.35rem);
-        line-height:.98;
-        letter-spacing:-.035em;
-        text-shadow:0 3px 18px rgba(0,0,0,.48);
-      }
-      .hero-sub{
-        font-size:.98rem;
-        line-height:1.42;
-        max-width:100%;
-        margin-top:18px;
-        color:rgba(255,255,255,.94);
-        text-shadow:0 2px 10px rgba(0,0,0,.45);
-      }
-      .hero .eyebrow{
-        text-shadow:0 2px 8px rgba(0,0,0,.45);
-      }
-      .hero-actions{
-        margin-top:22px;
-      }
-      .hero-actions .btn{
-        min-height:50px;
-      }
-      .hero-actions .btn-outline{
-        display:none;
-      }
-      nav{
-        padding-top:15px;
-      }
-      nav .brand{
-        text-shadow:0 2px 10px rgba(0,0,0,.55);
-      }
-
-
-      .hero{min-height:780px}
-      .hero-content{display:block;padding:138px 0 40px}
-      .hero h1{font-size:clamp(3.25rem,15vw,5.3rem);line-height:.98;max-width:100%}
-      .hero-sub{font-size:1rem;line-height:1.48;max-width:95%}
-      .hero-actions{gap:10px}
-      .hero-actions .btn{width:100%}
-      .hero-actions .btn-outline{color:white !important;border-color:rgba(255,255,255,.62) !important;background:rgba(0,0,0,.16)}
-      .hero-booking{display:none}
-      nav .inner{align-items:center}
-      nav .brand{font-size:1.15rem}
-      nav .nav-links .btn{font-size:.78rem;min-height:42px;padding:0 14px}
-      .credibility{padding-top:62px}
-      .credential-stack{margin-top:8px}
-      .booking-modal{display:none}
-      .booking-modal.open{display:flex}
-
-      .story::before{
-        background:
-          linear-gradient(90deg,rgba(15,12,8,.80),rgba(15,12,8,.20)),
-          url("/images/sol/shower.jpg") center/cover no-repeat;
-      }
-      .hero::before{
-        background:
-          linear-gradient(180deg,rgba(0,0,0,.52) 0%,rgba(0,0,0,.10) 36%,rgba(0,0,0,.68) 100%),
-          url("/images/sol/deckvertical.jpg") center 52%/cover no-repeat;
-      }
-      #booking-iframe{height:780px !important;}
       .container{width:min(100% - 26px,var(--max))}
-      section{padding:72px 0}
-      .topbar{font-size:.72rem}
-      nav{top:42px}
-      .hero{min-height:790px}
-      .hero-content{padding-bottom:38px}
-      .hero-facts{grid-template-columns:1fr}
-      .trust-inner{grid-template-columns:1fr 1fr;gap:14px}
-      .gallery-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
-      .gallery-grid figure{min-width:84vw;height:390px;scroll-snap-align:center}
-      .microproof,.cards,.credential-stack{grid-template-columns:1fr}
+      section{padding:76px 0}
+      .topbar{font-size:.68rem;line-height:1.35}
+      nav{top:48px;padding:14px 0}
+      nav .brand{font-size:1.15rem;text-shadow:0 2px 10px rgba(0,0,0,.55)}
+      nav .nav-links .btn{font-size:.77rem;min-height:42px;padding:0 14px}
+      .hero{min-height:780px}
+      .hero::before{
+        background:
+          linear-gradient(180deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,.05) 34%,rgba(0,0,0,.82) 100%),
+          url("/images/sol/deckvertical.jpg") center 43%/cover no-repeat;
+      }
+      .hero-content{padding:360px 0 38px}
+      .hero h1{font-size:clamp(3.1rem,14vw,4.7rem);line-height:.97}
+      .hero-sub{font-size:.98rem;line-height:1.45;max-width:100%}
+      .hero-actions .btn{width:100%}
+      .hero-actions .btn-outline{display:none}
+      .hero-meta{gap:9px;font-size:.74rem}
+      .authority-inner{grid-template-columns:1fr 1fr;gap:14px}
+      .authority-item{font-size:.67rem}
+      .visual-large{height:490px}
+      .visual-stack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+      .visual-stack figure{min-width:84vw;height:430px;scroll-snap-align:center}
       .experience-head{display:block}
-      .experience-head p{margin-top:20px}
-      .occasion-image{min-height:430px}
-      .occasion-copy{padding:32px 25px}
-      .recognition-image{height:460px}
-      .booking-shell{padding:13px}
-      .footer-grid{grid-template-columns:1fr}
+      .experience-head p{margin-top:18px}
+      .experience-image{min-height:430px}
+      .experience-copy{padding:34px 26px}
+      .occasion{min-height:680px}
+      .occasion::before{
+        background:
+          linear-gradient(180deg,rgba(15,12,8,.25),rgba(15,12,8,.78)),
+          url("/images/sol/diningvertical.jpg") center/cover no-repeat;
+      }
+      .occasion{align-items:flex-end}
+      .occasion .container{padding-bottom:52px}
+      .anniversary-images{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+      .anniversary-images figure{min-width:88vw;height:560px;scroll-snap-align:center}
+      .booking-drawer{width:100%;height:100dvh}
+      .booking-head{padding:calc(14px + env(safe-area-inset-top)) 18px 14px}
       .mobile-bar{display:block}
-      footer{padding-bottom:115px}
+      .footer-grid{grid-template-columns:1fr}
+      footer{padding-bottom:110px}
     }
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KP3CB263"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KP3CB263" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <div class="topbar">PRIVATE ARCHITECTURAL RETREAT FOR TWO · 90 MINUTES FROM DALLAS</div>
+  <div class="topbar">Private architectural retreat for two · 90 minutes from Dallas</div>
 
   <nav>
     <div class="container inner">
       <a class="brand" href="#">Wander Glamping</a>
       <div class="nav-links">
-        <a href="#experience">The experience</a>
-        <a href="#story">The cabin</a>
+        <a href="#experience">Experience</a>
+        <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn-light js-open-booking" href="#booking-iframe">View dates & price</a>
+        <a class="btn btn-light js-booking" href="#">Check dates & price</a>
       </div>
     </div>
   </nav>
 
   <header class="hero">
     <div class="container hero-content">
-      <div>
-        <div class="eyebrow" style="color:#f3c39f">Cabin SOL · Paris, Texas</div>
-        <h1>Some occasions deserve more than dinner.</h1>
-        <p class="hero-sub">Celebrate an anniversary, birthday, proposal or long-overdue weekend together in an award-winning private O-Frame on 15 secluded acres.</p>
-        <div class="hero-actions">
-          <a href="#booking-iframe" class="btn btn-light js-open-booking">View dates & price</a>
-          <a href="#gallery" class="btn btn-outline" style="color:white;border-color:rgba(255,255,255,.5)">Explore the cabin</a>
-        </div>
+      <div class="eyebrow" style="color:#f2bc93">Cabin SOL · Paris, Texas</div>
+      <h1>Some anniversaries deserve more than dinner.</h1>
+      <p class="hero-sub">A private architectural retreat for two, with a cedar hot tub, sauna, outdoor shower and 15 secluded acres. Just 90 minutes from Dallas.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-light js-booking">Check dates & price</a>
+        <a href="#experience" class="btn btn-outline">Explore the cabin</a>
       </div>
-      <aside class="hero-booking" aria-label="Cabin SOL availability and booking">
-        <div class="hero-booking-head">
-          <div class="eyebrow">Live availability</div>
-          <h3>Choose your dates</h3>
-          <p>See the complete stay price. One-night weeknight stays may be available.</p>
-        </div>
-        <div class="hero-booking-frame">
-          <iframe
-            id="booking-iframe"
-            title="Cabin SOL live availability and booking"
-            sandbox="allow-top-navigation allow-scripts allow-same-origin"
-            frameborder="0"
-            loading="eager"
-            src="https://booking.hospitable.com/widget/9e455532-78cb-41c7-b700-63c0954563f5/2272072">
-          </iframe>
-        </div>
-        <div class="hero-booking-foot">
-          <span>✓ Secure checkout</span>
-          <span>✓ Live pricing</span>
-          <span>✓ Direct host support</span>
-        </div>
-      </aside>
+      <div class="hero-meta">
+        <span>One-night weeknights may be available</span>
+        <span>·</span>
+        <span>Secure direct booking</span>
+      </div>
     </div>
   </header>
 
-  <div class="trust-strip">
-    <div class="container trust-inner">
-      <div class="trust-item">Featured in Dwell</div>
-      <div class="trust-item">AD México Award Winner</div>
-      <div class="trust-item">First O-Frame in the U.S.</div>
-      <div class="trust-item">Secure Direct Booking</div>
+  <div class="authority">
+    <div class="container authority-inner">
+      <div class="authority-item">Featured in Dwell</div>
+      <div class="authority-item">AD México Design Award</div>
+      <div class="authority-item">First O-Frame in the U.S.</div>
+      <div class="authority-item">Hosted by an Airbnb Superhost</div>
     </div>
   </div>
 
   <main>
-
-    <section class="credibility">
-      <div class="container credibility-grid">
-        <div>
-          <div class="eyebrow">New cabin. Proven hospitality.</div>
-          <h2 style="margin-top:12px">Hosted by Wander Glamping.</h2>
-          <p class="muted" style="margin-top:20px">Cabin SOL is our newest retreat, backed by the same hands-on hosting standards that earned our Bali Dome a 4.97 Airbnb rating, Superhost status and Airbnb “Most Loved Home” recognition.</p>
-          <p class="proof-disclaimer">These hosting credentials were earned through our Bali Dome. Cabin SOL is a newer listing and is building its own review history.</p>
-        </div>
-        <div class="credential-stack">
-          <div class="credential"><strong>4.97</strong><span>Airbnb rating at the Bali Dome</span></div>
-          <div class="credential"><strong>Superhost</strong><span>Recognized for consistent hospitality</span></div>
-          <div class="credential"><strong>Most Loved</strong><span>Airbnb home recognition</span></div>
-          <div class="credential"><strong>Local hosts</strong><span>Direct support before and during your stay</span></div>
-        </div>
-      </div>
-    </section>
-
     <section>
       <div class="container intro-grid">
         <div>
           <div class="eyebrow">Not another cabin</div>
-          <p class="intro-copy">A collectible piece of architecture you can sleep in, designed for two people to celebrate, reconnect and disappear for a while.</p>
+          <p class="intro-statement">A collectible piece of architecture designed for two people to celebrate, reconnect and disappear for a while.</p>
         </div>
         <div class="intro-body">
-          <p>Cabin SOL was designed by Mexico City’s oioioi Studio and brought to Texas as the first O-Frame cabin in the United States. Its curved door opens the entire cabin to the pines. A 4.5-foot circular window frames the sunrise from bed.</p>
-          <p class="muted">There are no shared amenities and no neighboring cabins beside you. The cedar hot tub, SaunaLife sauna, outdoor shower, ModFire fire pit and deck are entirely yours.</p>
-          <div class="microproof">
-            <div><strong>15 acres</strong><span>Private countryside</span></div>
-            <div><strong>2 guests</strong><span>Built for couples</span></div>
-            <div><strong>0 noise</strong><span>Beyond the pines</span></div>
+          <p>Cabin SOL was designed by Mexico City’s oioioi Studio and brought to Texas as the first O-Frame cabin in the United States. Its curved door opens the entire cabin to the pines. A circular window frames the sunrise from bed.</p>
+          <p class="muted">There are no shared amenities and no neighboring cabins beside you. The cedar hot tub, private sauna, outdoor shower, deck and fire pit are entirely yours.</p>
+          <div class="intro-facts">
+            <span>15 private acres</span>
+            <span>Maximum 2 guests</span>
+            <span>Private hot tub</span>
+            <span>Private sauna</span>
           </div>
         </div>
       </div>
     </section>
 
-    
-    <section id="gallery" class="gallery">
-      <div class="container gallery-grid">
-        <figure><picture>
-          
-          <img loading="lazy" src="/images/sol/bed.jpg" alt="Queen bed and circular window inside Cabin SOL">
-        </picture></figure>
-        <figure><picture>
-          
-          <img loading="lazy" src="/images/sol/Interior%20kitchen%20and%20bed.jpg" alt="Integrated kitchen and sleeping space at Cabin SOL">
-        </picture></figure>
-        <figure><picture>
-          <source media="(max-width: 600px)" srcset="/images/sol/deckchair.jpg">
-          <img loading="lazy" src="/images/sol/hottub.jpg" alt="Private cedar hot tub and deck seating at Cabin SOL">
-        </picture></figure>
-        <figure><picture>
-          <source media="(max-width: 600px)" srcset="/images/sol/deckvertical.jpg">
-          <img loading="lazy" src="/images/sol/deckwide.jpg" alt="Cabin SOL exterior and private deck among the pines">
-        </picture></figure>
+    <section class="visual-story">
+      <div class="container visual-grid">
+        <figure class="visual-large">
+          <picture>
+            <source media="(max-width:600px)" srcset="/images/sol/deckvertical.jpg">
+            <img loading="lazy" src="/images/sol/deckwide.jpg" alt="Cabin SOL exterior and private deck among the pines">
+          </picture>
+          <figcaption class="caption">Architecture in the pines.</figcaption>
+        </figure>
+        <div class="visual-stack">
+          <figure>
+            <img loading="lazy" src="/images/sol/bed.jpg" alt="Queen bed and circular window at Cabin SOL">
+            <figcaption class="caption">Wake inside the view.</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="/images/sol/Interior%20kitchen%20and%20bed.jpg" alt="Integrated kitchen and sleeping space at Cabin SOL">
+            <figcaption class="caption">Every inch considered.</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
-
-    <section class="recognition">
-      <div class="container recognition-grid">
-        <div>
+    <section class="architecture">
+      <div class="container architecture-grid">
+        <div class="architecture-copy">
           <div class="eyebrow" style="color:#e7aa7c">Architecture worth traveling for</div>
           <h2>The only stay of its kind in the country.</h2>
           <p>Cabin SOL is not a mass-produced tiny home. It is an AD México Design Award-winning O-Frame by oioioi Studio, featured by Dwell and placed on private Texas acreage as a one-of-one retreat.</p>
-          <div class="press">
-            <span>Dwell</span>
-            <span>AD México</span>
-            <span>oioioi Studio</span>
-          </div>
+          <div class="press"><span>Dwell</span><span>AD México</span><span>oioioi Studio</span></div>
         </div>
-        <div class="recognition-image">
+        <div class="architecture-image">
           <picture>
-          <source media="(max-width: 600px)" srcset="/images/sol/deckvertical.jpg">
-          <img loading="lazy" src="/images/sol/superwide.jpg" alt="Cabin SOL architecture glowing among pine trees">
-        </picture>
+            <source media="(max-width:600px)" srcset="/images/sol/deckvertical.jpg">
+            <img loading="lazy" src="/images/sol/superwide.jpg" alt="Award-winning Cabin SOL architecture among pine trees">
+          </picture>
         </div>
       </div>
     </section>
@@ -486,85 +354,126 @@
             <div class="eyebrow">Everything is private</div>
             <h2>Luxury is what disappears.</h2>
           </div>
-          <p class="muted">No lobby. No crowded resort pool. No shared hot tub. No schedule. Just a complete private retreat designed to help two people slow down.</p>
+          <p class="muted">No lobby. No shared hot tub. No schedule. Just a complete private retreat designed to help two people slow down.</p>
         </div>
-        <div class="cards">
-          <article class="card"><span class="card-number">01</span><div><h3>Cedar soaking tub</h3><p>Soak beneath the pines with nothing around you but sky and trees.</p></div></article>
-          <article class="card"><span class="card-number">02</span><div><h3>Private sauna</h3><p>A SaunaLife cedar sauna reserved exclusively for your stay.</p></div></article>
-          <article class="card"><span class="card-number">03</span><div><h3>Outdoor shower</h3><p>A rainfall shower wrapped in cedar, open air and complete privacy.</p></div></article>
-          <article class="card"><span class="card-number">04</span><div><h3>Fire after dark</h3><p>A sculptural ModFire pit, wide Texas skies and nowhere else to be.</p></div></article>
+
+        <div class="experience-row">
+          <div class="experience-image"><img loading="lazy" src="/images/sol/hottub.jpg" alt="Private cedar hot tub at Cabin SOL"></div>
+          <div class="experience-copy">
+            <div class="eyebrow">Soak beneath the pines</div>
+            <h3>Cedar hot tub</h3>
+            <p>The warm cedar, the scent of the wood and the open sky turn a simple soak into the center of the evening.</p>
+          </div>
+        </div>
+
+        <div class="experience-row reverse">
+          <div class="experience-image"><img loading="lazy" src="/images/sol/saunawide.jpg" alt="Private sauna at Cabin SOL"></div>
+          <div class="experience-copy">
+            <div class="eyebrow">Heat. Quiet. Reset.</div>
+            <h3>Private cedar sauna</h3>
+            <p>A SaunaLife cedar sauna reserved exclusively for your stay, steps from the cabin and hot tub.</p>
+          </div>
+        </div>
+
+        <div class="experience-row">
+          <div class="experience-image">
+            <picture>
+              <source media="(max-width:600px)" srcset="/images/sol/shower.jpg">
+              <img loading="lazy" src="/images/sol/showerclose.jpg" alt="Private outdoor cedar shower at Cabin SOL">
+            </picture>
+          </div>
+          <div class="experience-copy">
+            <div class="eyebrow">Open sky overhead</div>
+            <h3>Outdoor shower</h3>
+            <p>A rainfall shower wrapped in cedar, open air and complete privacy.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="occasion">
-      <div class="container occasion-grid">
-        <div class="occasion-image">
-          <picture>
-          <source media="(max-width: 600px)" srcset="/images/sol/diningvertical.jpg">
-          <img loading="lazy" src="/images/sol/dininghoriz.jpg" alt="Dining setup for a romantic stay at Cabin SOL">
-        </picture>
-        </div>
-        <div class="occasion-copy">
-          <div class="eyebrow">For anniversaries and the moments worth remembering</div>
-          <h2>Make the occasion feel like one.</h2>
-          <p class="muted">Cabin SOL is built for anniversaries, birthdays, proposals and the rare chance to step away from everything and focus on each other.</p>
-          <ul>
-            <li>Queen bed facing the circular sunrise window</li>
-            <li>Full private bathroom with rainfall shower and smart toilet</li>
-            <li>Integrated kitchen, coffee station and Starlink WiFi</li>
-            <li>Downtown Paris and major stores within ten minutes</li>
-          </ul>
-          <a href="#booking-iframe" class="btn btn-primary js-open-booking">View dates & price</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="story" class="story">
       <div class="container">
-        <div class="story-copy">
-          <div class="eyebrow" style="color:#f3c39f">The setting</div>
-          <h2>Close enough for Friday. Far enough to disappear.</h2>
-          <p>Paris, Texas sits about 90 minutes northeast of Dallas. The final stretch trades traffic for open prairie, pine forest and the kind of silence that is increasingly difficult to find this close to the city.</p>
+        <div class="occasion-copy">
+          <div class="eyebrow" style="color:#f2bc93">For the moments worth remembering</div>
+          <h2>Make the occasion feel like one.</h2>
+          <p>Cabin SOL is built for anniversaries, birthdays, proposals and the rare chance to step away from everything and focus on each other.</p>
         </div>
       </div>
     </section>
 
-    
-    <section class="reviews-section">
+    <section id="reviews" class="reviews">
       <div class="container">
         <div class="reviews-head">
-          <div>
-            <div class="eyebrow">What guests remember</div>
-            <h2>Proof that goes beyond a star rating.</h2>
-          </div>
-          <p class="muted">Use exact, verified guest wording here. These cards are built for your strongest Bali and SOL reviews without overstating which property earned each comment.</p>
+          <div class="eyebrow">What guests say</div>
+          <h2>The property is new. The response is already clear.</h2>
         </div>
 
         <div class="review-grid">
           <article class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <blockquote>“[Paste your strongest Bali Dome review about hospitality, design or attention to detail.]”</blockquote>
-            <div class="review-meta">Verified Bali Dome guest · Airbnb</div>
+            <div class="stars">★★★★★</div>
+            <blockquote>“Such a beautiful and well thought out place. It is truly inspiring and unique. The finishes were out of a magazine.”</blockquote>
+            <div class="review-meta">Teresa · Terrell, Texas · Stayed at Cabin SOL</div>
           </article>
 
           <article class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <blockquote>“[Paste your strongest review from a couple celebrating an anniversary or special occasion.]”</blockquote>
-            <div class="review-meta">Verified Wander Glamping guest · Airbnb</div>
+            <div class="stars">★★★★★</div>
+            <blockquote>“This cabin exceeded all of our expectations and was truly a 10/10 experience. Every little detail was carefully considered, and it really shows.”</blockquote>
+            <div class="review-meta">Al · Princeton, Texas · Stayed at Cabin SOL</div>
           </article>
 
           <article class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <blockquote>Our earliest Cabin SOL anniversary guests left original watercolor paintings inspired by their stay. We are framing them for the cabin.</blockquote>
-            <div class="review-meta">Cabin SOL guests · 36th anniversary</div>
+            <div class="stars">★★★★★</div>
+            <blockquote>“The privacy felt like our own little paradise surrounded by nature. Waking up to the sound of birds every morning was incredibly relaxing.”</blockquote>
+            <div class="review-meta">Al · Princeton, Texas · Stayed at Cabin SOL</div>
+          </article>
+
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>“Highly recommend for those of us who love nature and unique experiences. Great job to our hosts who were exceptional.”</blockquote>
+            <div class="review-meta">Teresa · Terrell, Texas · Stayed at Cabin SOL</div>
           </article>
         </div>
       </div>
     </section>
 
+    <section class="anniversary-story">
+      <div class="container anniversary-grid">
+        <div class="anniversary-copy">
+          <div class="eyebrow">A 36th anniversary at Cabin SOL</div>
+          <h2>They came for a stay. They left part of themselves behind.</h2>
+          <p class="pullquote">“These kinds of moments, these kinds of memories, sustain us.”</p>
+          <p class="muted">Richard and Teresa celebrated their 36th wedding anniversary at Cabin SOL. Their handwritten note said the experience could have been simpler, but instead every detail elevated the stay. They were so moved by the cabin that they painted original watercolors for us. The artwork is being framed and featured inside Cabin SOL.</p>
+        </div>
+        <div class="anniversary-images">
+          <figure><img loading="lazy" src="/images/sol/review-note-1.png" alt="Handwritten guestbook note from Cabin SOL anniversary guests"></figure>
+          <figure><img loading="lazy" src="/images/sol/review-note-2.png" alt="Second page of handwritten guestbook note from Cabin SOL anniversary guests"></figure>
+        </div>
+      </div>
+    </section>
 
-    
+    <section class="host-proof">
+      <div class="container host-grid">
+        <div class="host-copy">
+          <div class="eyebrow">New retreat. Proven hosts.</div>
+          <h2>Hosted by Wander Glamping.</h2>
+          <p class="muted">Wander Glamping’s original Bali Dome holds a 4.97 Airbnb rating and earned Superhost and Most Loved Home recognition. Cabin SOL brings the same hands-on hospitality and obsessive attention to detail to an entirely new architectural experience.</p>
+          <p class="footnote">Hosting credentials referenced here were earned at the Bali Dome.</p>
+        </div>
+        <div class="credentials">
+          <div class="credential"><strong>4.97</strong><span>Airbnb rating at the Bali Dome</span></div>
+          <div class="credential"><strong>Superhost</strong><span>Recognized for consistent hospitality</span></div>
+          <div class="credential"><strong>Most Loved</strong><span>Airbnb home recognition</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <h2>Make this the weekend you remember.</h2>
+        <p>Choose your dates, see the full stay price and reserve securely through Hospitable.</p>
+        <a href="#" class="btn btn-light js-booking">Check dates & price</a>
+      </div>
+    </section>
 
     <section id="faq">
       <div class="container faq-grid">
@@ -576,9 +485,8 @@
           <details open><summary>How private is Cabin SOL?</summary><p>The cabin and its outdoor amenities sit on 15 private acres. The hot tub, sauna, outdoor shower, deck and fire pit are not shared with other guests.</p></details>
           <details><summary>How far is it from Dallas?</summary><p>The property is roughly 90 minutes northeast of Dallas near Paris, Texas. A personal vehicle is required.</p></details>
           <details><summary>Who is the cabin designed for?</summary><p>Cabin SOL accommodates a maximum of two guests in one queen bed. It is designed as a couples retreat and is not child-friendly.</p></details>
+          <details><summary>Are one-night stays available?</summary><p>One-night stays may be available on select weeknights. Weekend and holiday minimums vary by date.</p></details>
           <details><summary>What is included?</summary><p>The cabin includes a full private bathroom, compact integrated kitchen, Starlink WiFi, climate control, cedar hot tub, private sauna, outdoor shower, BBQ grill and fire pit.</p></details>
-          <details><summary>Are pets allowed?</summary><p>One well-behaved dog may be approved. A pet fee applies and pets may not be left unattended in the cabin.</p></details>
-          <details><summary>What should we expect from the rural setting?</summary><p>This is a countryside stay in East Texas. Wildlife, insects, changing weather and gravel access are part of the setting. The cabin is fully climate controlled and the property is regularly treated.</p></details>
           <details><summary>What are check-in and checkout times?</summary><p>Standard check-in is 3:00 PM and checkout is 10:00 AM. Any approved exceptions will be confirmed before arrival.</p></details>
         </div>
       </div>
@@ -596,17 +504,16 @@
   </footer>
 
   <div class="mobile-bar">
-    <a class="btn btn-primary js-open-booking" href="#booking-iframe">View dates & price</a>
+    <a href="#" class="btn btn-primary js-booking">Check dates & price</a>
   </div>
 
-
-  <div class="booking-modal" id="booking-modal" aria-hidden="true">
-    <div class="booking-modal-panel" role="dialog" aria-modal="true" aria-label="Cabin SOL booking calendar">
-      <div class="booking-modal-head">
+  <div class="booking-overlay" id="booking-overlay" aria-hidden="true">
+    <div class="booking-drawer" role="dialog" aria-modal="true" aria-label="Cabin SOL booking calendar">
+      <div class="booking-head">
         <strong>Choose your dates</strong>
         <button class="booking-close" type="button" aria-label="Close booking calendar">×</button>
       </div>
-      <div class="booking-modal-body">
+      <div class="booking-body">
         <iframe
           title="Cabin SOL live availability and booking"
           sandbox="allow-top-navigation allow-scripts allow-same-origin"
@@ -616,66 +523,30 @@
     </div>
   </div>
 
-
   <script>
-    // Smooth-scroll offset for anchored booking CTAs.
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', function(e){
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target){
-          e.preventDefault();
-          target.scrollIntoView({behavior:'smooth', block:'start'});
-        }
-      });
-    });
+    const overlay = document.getElementById('booking-overlay');
+    const closeButton = overlay.querySelector('.booking-close');
 
-    // Lightweight GTM events for key landing-page actions.
-    document.querySelectorAll('a[href="#booking-iframe"]').forEach(el => {
-      el.addEventListener('click', () => {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({event:'landing_page_check_availability_click'});
-      });
-    });
-
-    const bookingModal = document.getElementById('booking-modal');
-    const bookingClose = bookingModal?.querySelector('.booking-close');
-
-    function openBookingModal(e) {
-      if (!window.matchMedia('(max-width: 600px)').matches) return;
+    function openBooking(e){
       e.preventDefault();
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden','false');
+      document.body.classList.add('no-scroll');
 
-      if (!bookingModal) {
-        console.error('Booking modal was not found.');
-        return;
-      }
-
-      bookingModal.classList.add('open');
-      bookingModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event:'landing_page_booking_open'});
     }
 
-    function closeBookingModal() {
-      if (!bookingModal) return;
-      bookingModal.classList.remove('open');
-      bookingModal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+    function closeBooking(){
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden','true');
+      document.body.classList.remove('no-scroll');
     }
 
-    document.querySelectorAll('.js-open-booking').forEach(el => {
-      el.addEventListener('click', openBookingModal);
-    });
-
-    bookingClose?.addEventListener('click', closeBookingModal);
-
-    bookingModal?.addEventListener('click', (e) => {
-      if (e.target === bookingModal) closeBookingModal();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && bookingModal?.classList.contains('open')) {
-        closeBookingModal();
-      }
-    });
+    document.querySelectorAll('.js-booking').forEach(el => el.addEventListener('click', openBooking));
+    closeButton.addEventListener('click', closeBooking);
+    overlay.addEventListener('click', e => { if(e.target === overlay) closeBooking(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeBooking(); });
   </script>
 </body>
 </html>
