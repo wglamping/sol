@@ -64,7 +64,7 @@
     .nav-links a{text-decoration:none;font-size:.9rem;font-weight:650}
     .nav-links .btn{min-height:44px;padding:0 18px}
 
-    .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:white;overflow:hidden}
+    .hero{position:relative;min-height:980px;display:flex;align-items:flex-end;color:white;overflow:hidden}
     .hero::before{content:"";position:absolute;inset:0;background:
       linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.06) 35%,rgba(0,0,0,.62) 100%),
       url("/images/sol/deckhoriz.jpg") center 62%/cover no-repeat;
@@ -78,8 +78,8 @@
     .hero-booking-head{padding:22px 24px 14px;border-bottom:1px solid var(--line)}
     .hero-booking-head h3{font-size:1.55rem}
     .hero-booking-head p{font-size:.86rem;color:rgba(23,20,15,.66);margin-top:6px}
-    .hero-booking-frame{height:660px;overflow:hidden;background:white}
-    .hero-booking iframe{width:100%;height:760px;border:0;display:block}
+    .hero-booking-frame{height:860px;overflow:hidden;background:white}
+    .hero-booking iframe{width:100%;height:860px;border:0;display:block}
     .hero-booking-foot{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;padding:13px 18px 16px;border-top:1px solid var(--line);font-size:.74rem;color:rgba(23,20,15,.62)}
     .fact{display:flex;justify-content:space-between;gap:20px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.18)}
     .fact:last-child{border:0;padding:0}
@@ -191,8 +191,8 @@
     }
     .booking-modal.open{display:flex}
     .booking-modal-panel{
-      width:min(100%,720px);height:96dvh;background:var(--cream);
-      border-radius:24px 24px 0 0;overflow:hidden;box-shadow:0 -20px 60px rgba(0,0,0,.35);
+      width:min(100%,720px);height:100dvh;background:var(--cream);
+      border-radius:20px 20px 0 0;overflow:hidden;box-shadow:0 -20px 60px rgba(0,0,0,.35);
       display:flex;flex-direction:column;
     }
     .booking-modal-head{
@@ -216,8 +216,8 @@
       .hero{min-height:auto}
       .hero-content{grid-template-columns:1fr;padding-top:150px}
       .hero-booking{max-width:620px;width:100%;margin-top:10px}
-      .hero-booking-frame{height:700px}
-      .hero-booking iframe{height:800px}
+      .hero-booking-frame{height:860px}
+      .hero-booking iframe{height:860px}
       .intro-grid,.recognition-grid,.occasion-grid,.proof-grid,.faq-grid,.credibility-grid{grid-template-columns:1fr}
       .trust-inner{grid-template-columns:1fr 1fr}
       .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:340px 220px 220px}
@@ -515,7 +515,7 @@
             <li>Integrated kitchen, coffee station and Starlink WiFi</li>
             <li>Downtown Paris and major stores within ten minutes</li>
           </ul>
-          <a href="#booking-iframe" class="btn btn-primary">View dates & price</a>
+          <a href="#booking-iframe" class="btn btn-primary js-open-booking">View dates & price</a>
         </div>
       </div>
     </section>
@@ -599,6 +599,24 @@
     <a class="btn btn-primary js-open-booking" href="#booking-iframe">View dates & price</a>
   </div>
 
+
+  <div class="booking-modal" id="booking-modal" aria-hidden="true">
+    <div class="booking-modal-panel" role="dialog" aria-modal="true" aria-label="Cabin SOL booking calendar">
+      <div class="booking-modal-head">
+        <strong>Choose your dates</strong>
+        <button class="booking-close" type="button" aria-label="Close booking calendar">×</button>
+      </div>
+      <div class="booking-modal-body">
+        <iframe
+          title="Cabin SOL live availability and booking"
+          sandbox="allow-top-navigation allow-scripts allow-same-origin"
+          src="https://booking.hospitable.com/widget/9e455532-78cb-41c7-b700-63c0954563f5/2272072">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+
   <script>
     // Smooth-scroll offset for anchored booking CTAs.
     document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -620,17 +638,24 @@
     });
 
     const bookingModal = document.getElementById('booking-modal');
-    const bookingClose = document.querySelector('.booking-close');
+    const bookingClose = bookingModal?.querySelector('.booking-close');
 
     function openBookingModal(e) {
       if (!window.matchMedia('(max-width: 600px)').matches) return;
       e.preventDefault();
+
+      if (!bookingModal) {
+        console.error('Booking modal was not found.');
+        return;
+      }
+
       bookingModal.classList.add('open');
       bookingModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
 
     function closeBookingModal() {
+      if (!bookingModal) return;
       bookingModal.classList.remove('open');
       bookingModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
@@ -640,33 +665,17 @@
       el.addEventListener('click', openBookingModal);
     });
 
-    bookingClose.addEventListener('click', closeBookingModal);
-    bookingModal.addEventListener('click', (e) => {
+    bookingClose?.addEventListener('click', closeBookingModal);
+
+    bookingModal?.addEventListener('click', (e) => {
       if (e.target === bookingModal) closeBookingModal();
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && bookingModal.classList.contains('open')) {
+      if (e.key === 'Escape' && bookingModal?.classList.contains('open')) {
         closeBookingModal();
       }
     });
   </script>
-
-  <div class="booking-modal" id="booking-modal" aria-hidden="true">
-    <div class="booking-modal-panel" role="dialog" aria-modal="true" aria-label="Cabin SOL booking calendar">
-      <div class="booking-modal-head">
-        <strong>Choose your dates</strong>
-        <button class="booking-close" type="button" aria-label="Close booking calendar">×</button>
-      </div>
-      <div class="booking-modal-body">
-        <iframe
-          title="Cabin SOL live availability and booking"
-          sandbox="allow-top-navigation allow-scripts allow-same-origin"
-          src="https://booking.hospitable.com/widget/9e455532-78cb-41c7-b700-63c0954563f5/2272072">
-        </iframe>
-      </div>
-    </div>
-  </div>
-
 </body>
 </html>
