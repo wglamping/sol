@@ -17,6 +17,32 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-KP3CB263');
+  
+    const bookingModal = document.getElementById('booking-modal');
+    const bookingClose = document.querySelector('.booking-close');
+
+    document.querySelectorAll('.js-open-booking').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if (window.matchMedia('(max-width: 600px)').matches) {
+          e.preventDefault();
+          bookingModal.classList.add('open');
+          bookingModal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    function closeBookingModal(){
+      bookingModal.classList.remove('open');
+      bookingModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    bookingClose?.addEventListener('click', closeBookingModal);
+    bookingModal?.addEventListener('click', (e) => {
+      if (e.target === bookingModal) closeBookingModal();
+    });
+
   </script>
   <!-- End Google Tag Manager -->
 
@@ -184,6 +210,29 @@
     footer p{color:rgba(255,255,255,.58);margin-top:10px}
     footer a{color:white}
 
+
+    .booking-modal{
+      position:fixed;inset:0;z-index:1000;background:rgba(16,13,9,.72);
+      display:none;align-items:flex-end;justify-content:center;padding:0;
+    }
+    .booking-modal.open{display:flex}
+    .booking-modal-panel{
+      width:min(100%,720px);height:94vh;background:var(--cream);
+      border-radius:24px 24px 0 0;overflow:hidden;box-shadow:0 -20px 60px rgba(0,0,0,.35);
+      display:flex;flex-direction:column;
+    }
+    .booking-modal-head{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:16px 18px;border-bottom:1px solid var(--line);background:white;
+    }
+    .booking-modal-head strong{font-family:var(--serif);font-size:1.35rem;font-weight:500}
+    .booking-close{
+      width:42px;height:42px;border:1px solid var(--line);border-radius:999px;
+      background:white;font-size:1.4rem;cursor:pointer;
+    }
+    .booking-modal-body{flex:1;overflow:hidden;background:white}
+    .booking-modal-body iframe{width:100%;height:100%;border:0}
+
     .mobile-bar{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:50;background:rgba(255,255,255,.94);box-shadow:0 15px 40px rgba(0,0,0,.25);backdrop-filter:blur(14px);border-radius:18px;padding:10px;opacity:0;pointer-events:none;transform:translateY(16px);transition:.22s ease}
     .mobile-bar.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
     .mobile-bar .btn{width:100%}
@@ -206,6 +255,23 @@
       .occasion-copy{padding:45px}
     }
     @media(max-width:600px){
+
+      .hero{min-height:780px}
+      .hero-content{display:block;padding:138px 0 40px}
+      .hero h1{font-size:clamp(3.25rem,15vw,5.3rem);line-height:.98;max-width:100%}
+      .hero-sub{font-size:1rem;line-height:1.48;max-width:95%}
+      .hero-actions{gap:10px}
+      .hero-actions .btn{width:100%}
+      .hero-actions .btn-outline{color:white !important;border-color:rgba(255,255,255,.62) !important;background:rgba(0,0,0,.16)}
+      .hero-booking{display:none}
+      nav .inner{align-items:center}
+      nav .brand{font-size:1.15rem}
+      nav .nav-links .btn{font-size:.78rem;min-height:42px;padding:0 14px}
+      .credibility{padding-top:62px}
+      .credential-stack{margin-top:8px}
+      .booking-modal{display:none}
+      .booking-modal.open{display:flex}
+
       .story::before{
         background:
           linear-gradient(90deg,rgba(15,12,8,.80),rgba(15,12,8,.20)),
@@ -255,7 +321,7 @@
         <a href="#experience">The experience</a>
         <a href="#story">The cabin</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn-light" href="#booking-iframe">View dates & price</a>
+        <a class="btn btn-light js-open-booking" href="#booking-iframe">View dates & price</a>
       </div>
     </div>
   </nav>
@@ -267,7 +333,7 @@
         <h1>Some occasions deserve more than dinner.</h1>
         <p class="hero-sub">Celebrate an anniversary, birthday, proposal or long-overdue weekend together in an award-winning private O-Frame on 15 secluded acres.</p>
         <div class="hero-actions">
-          <a href="#booking-iframe" class="btn btn-light">View dates & price</a>
+          <a href="#booking-iframe" class="btn btn-light js-open-booking">View dates & price</a>
           <a href="#gallery" class="btn btn-outline" style="color:white;border-color:rgba(255,255,255,.5)">Explore the cabin</a>
         </div>
       </div>
@@ -503,7 +569,7 @@
   </footer>
 
   <div class="mobile-bar">
-    <a class="btn btn-primary" href="#booking-iframe">View dates & price</a>
+    <a class="btn btn-primary js-open-booking" href="#booking-iframe">View dates & price</a>
   </div>
 
   <script>
@@ -526,5 +592,22 @@
       });
     });
   </script>
+
+  <div class="booking-modal" id="booking-modal" aria-hidden="true">
+    <div class="booking-modal-panel" role="dialog" aria-modal="true" aria-label="Cabin SOL booking calendar">
+      <div class="booking-modal-head">
+        <strong>Choose your dates</strong>
+        <button class="booking-close" type="button" aria-label="Close booking calendar">×</button>
+      </div>
+      <div class="booking-modal-body">
+        <iframe
+          title="Cabin SOL live availability and booking"
+          sandbox="allow-top-navigation allow-scripts allow-same-origin"
+          src="https://booking.hospitable.com/widget/9e455532-78cb-41c7-b700-63c0954563f5/2272072">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
